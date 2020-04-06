@@ -1,0 +1,30 @@
+target/
+*/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### mac ###
+.DS_Store
+
+## python ##
+env/
+*/**/__pycache__/
+*/**/*.pyc
+
+## pyinstaller ##
+build/
+dist/
+msk-mind.spec
+
