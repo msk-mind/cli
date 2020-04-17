@@ -6,7 +6,7 @@ Python Command Line Interface to access MSK MIND
 ### Download executable
 Simply download `msk-mind` executable.
 *Note*: This executable is generated on macOS. It will not work on linux machines.  
-To generate an executable, follow the steps for development, then run
+To generate an executable, follow the steps for development and run instructions , then run
 ```
 pyinstaller --onefile msk-mind.py
 ```
@@ -33,16 +33,33 @@ pip install -r requirements.txt
 
 ### View Help
 ```
-msk-mind --help
-msk-mind business --help
-msk-mind operation --help
+$ msk-mind --help
+Usage: msk-mind.py [OPTIONS] COMMAND [ARGS]...
+
+  Welcome to MSK MIND!
+
+Options:
+  --host TEXT  [default: http://localhost:8080]
+  --help       Show this message and exit.
+
+Commands:
+  get  get the URL to the data bundle that corresponds to the given query.
+```
+
+```
+$ msk-mind get --help
+Usage: msk-mind.py get [OPTIONS] QUERY
+
+  get the URL to the data bundle that corresponds to the given query.
+
+  QUERY is a SQL select statement
 ```
 
 ### Examples
 
-1. Get patients with clinical stage '3C'
-```
-msk-mind business get_metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
+1. Get patient data where patients have clinical stage '3C'
+
+msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 ```
 Output:
 ```
@@ -51,18 +68,11 @@ Output:
 ...
 ```
 
-2. Get file information
+2. Get url to patient data bundle with the optional download flag
 ```
-msk-mind operation get_files '{
-  "dmpIds": ["P-0039384"],
-  "createTime": "2020-03-01",
-  "fileType":"IMAGE_HNE"
-}'
+msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 ```
 Output:
 ```
-{'create_time': datetime.date(2020, 3, 2),  'id': 'P-0039384',  'path': '/data/P-0039384/1500649.svs',  'type': 'IMAGE_HNE'}
-{'create_time': datetime.date(2020, 3, 2),  'id': 'P-0039384',  'path': '/data/P-0039384/1500784.svs',  'type': 'IMAGE_HNE'}
-...
+http://<vm_ip>:50070/data/tmp/1587488693850.gz
 ```
-
