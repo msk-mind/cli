@@ -2,6 +2,7 @@ import click
 import openapi_client
 from openapi_client.api_client import ApiClient
 from openapi_client.configuration import Configuration
+from util import pprint_ls
 
 @click.group()
 @click.pass_context
@@ -23,14 +24,35 @@ def cli(ctx, host):
 @click.argument("query")
 @click.option("--download", is_flag=True, default=False, show_default=True)
 def get(ctx, query, download):
-    """get the URL to the data bundle that corresponds to the given query.
+    """get data that corresponds to the given query.
 
-    QUERY is a SQL select statement
+    QUERY - a SQL select statement.
+
+    DOWNLOAD - an optional flag.
+    If the flat is set, return a URL to the query result set.
     """
-    if (download):
+    if download:
         print(ctx.obj["business"].get_metadata_file_url(query))
     else:
-        print(ctx.obj["business"].get_metadata(query))
+        pprint_ls(ctx.obj["business"].get_metadata(query))
+
+
+@cli.command()
+@click.pass_context
+@click.argument("name", required=False)
+def table(ctx, name):
+    """introspect on available tables and table details.
+
+    NAME - an optional table name.
+    If provided, return column details (name, type, comments) for the table.
+    """
+    result = []
+    if name:
+        result = ctx.obj["business"].get_metadata("describe " + name)
+        pprint_ls([(column['col_name'], column['data_type'], column['comment']) for column in result])
+    else:
+        result = ctx.obj["business"].get_metadata("show tables")
+        pprint_ls([table['tab_name'] for table in result])
 
 
 if __name__ == '__main__':
