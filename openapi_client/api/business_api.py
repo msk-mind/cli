@@ -39,7 +39,7 @@ class BusinessApi(object):
     def get_metadata(self, text_node, **kwargs):  # noqa: E501
         """get_metadata  # noqa: E501
 
-        Get metadata  # noqa: E501
+        Get metadata that match the query  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_metadata(text_node, async_req=True)
@@ -54,7 +54,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[dict(str, object)]
+        :return: MINDResponseListMapStringObject
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -64,7 +64,7 @@ class BusinessApi(object):
     def get_metadata_with_http_info(self, text_node, **kwargs):  # noqa: E501
         """get_metadata  # noqa: E501
 
-        Get metadata  # noqa: E501
+        Get metadata that match the query  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_metadata_with_http_info(text_node, async_req=True)
@@ -81,7 +81,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[dict(str, object)], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MINDResponseListMapStringObject, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -146,7 +146,7 @@ class BusinessApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[dict(str, object)]',  # noqa: E501
+            response_type='MINDResponseListMapStringObject',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -157,7 +157,7 @@ class BusinessApi(object):
     def get_metadata_file_url(self, text_node, **kwargs):  # noqa: E501
         """get_metadata_file_url  # noqa: E501
 
-        Get a URL to the zipped data that match the criteria  # noqa: E501
+        Get a URL to the zipped data of the query results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_metadata_file_url(text_node, async_req=True)
@@ -172,7 +172,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: str
+        :return: MINDResponseString
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -182,7 +182,7 @@ class BusinessApi(object):
     def get_metadata_file_url_with_http_info(self, text_node, **kwargs):  # noqa: E501
         """get_metadata_file_url  # noqa: E501
 
-        Get a URL to the zipped data that match the criteria  # noqa: E501
+        Get a URL to the zipped data of the query results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_metadata_file_url_with_http_info(text_node, async_req=True)
@@ -199,7 +199,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MINDResponseString, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -257,14 +257,14 @@ class BusinessApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/metadata/fileURL', 'POST',
+            '/metadata/fileUrl', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type='MINDResponseString',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

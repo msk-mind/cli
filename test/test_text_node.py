@@ -42,13 +42,12 @@ class TestTextNode(unittest.TestCase):
                 null = True, 
                 value_node = True, 
                 container_node = True, 
-                object = True, 
                 missing_node = True, 
+                object = True, 
                 pojo = True, 
                 number = True, 
                 integral_number = True, 
                 floating_point_number = True, 
-                short = True, 
                 int = True, 
                 long = True, 
                 float = True, 
@@ -57,7 +56,8 @@ class TestTextNode(unittest.TestCase):
                 big_integer = True, 
                 textual = True, 
                 boolean = True, 
-                binary = True
+                binary = True, 
+                short = True
             )
         else :
             return TextNode(

@@ -39,13 +39,12 @@ class TextNode(object):
         'null': 'bool',
         'value_node': 'bool',
         'container_node': 'bool',
-        'object': 'bool',
         'missing_node': 'bool',
+        'object': 'bool',
         'pojo': 'bool',
         'number': 'bool',
         'integral_number': 'bool',
         'floating_point_number': 'bool',
-        'short': 'bool',
         'int': 'bool',
         'long': 'bool',
         'float': 'bool',
@@ -54,7 +53,8 @@ class TextNode(object):
         'big_integer': 'bool',
         'textual': 'bool',
         'boolean': 'bool',
-        'binary': 'bool'
+        'binary': 'bool',
+        'short': 'bool'
     }
 
     attribute_map = {
@@ -64,13 +64,12 @@ class TextNode(object):
         'null': 'null',
         'value_node': 'valueNode',
         'container_node': 'containerNode',
-        'object': 'object',
         'missing_node': 'missingNode',
+        'object': 'object',
         'pojo': 'pojo',
         'number': 'number',
         'integral_number': 'integralNumber',
         'floating_point_number': 'floatingPointNumber',
-        'short': 'short',
         'int': 'int',
         'long': 'long',
         'float': 'float',
@@ -79,10 +78,11 @@ class TextNode(object):
         'big_integer': 'bigInteger',
         'textual': 'textual',
         'boolean': 'boolean',
-        'binary': 'binary'
+        'binary': 'binary',
+        'short': 'short'
     }
 
-    def __init__(self, node_type=None, empty=None, array=None, null=None, value_node=None, container_node=None, object=None, missing_node=None, pojo=None, number=None, integral_number=None, floating_point_number=None, short=None, int=None, long=None, float=None, double=None, big_decimal=None, big_integer=None, textual=None, boolean=None, binary=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, node_type=None, empty=None, array=None, null=None, value_node=None, container_node=None, missing_node=None, object=None, pojo=None, number=None, integral_number=None, floating_point_number=None, int=None, long=None, float=None, double=None, big_decimal=None, big_integer=None, textual=None, boolean=None, binary=None, short=None, local_vars_configuration=None):  # noqa: E501
         """TextNode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,13 +94,12 @@ class TextNode(object):
         self._null = None
         self._value_node = None
         self._container_node = None
-        self._object = None
         self._missing_node = None
+        self._object = None
         self._pojo = None
         self._number = None
         self._integral_number = None
         self._floating_point_number = None
-        self._short = None
         self._int = None
         self._long = None
         self._float = None
@@ -110,6 +109,7 @@ class TextNode(object):
         self._textual = None
         self._boolean = None
         self._binary = None
+        self._short = None
         self.discriminator = None
 
         if node_type is not None:
@@ -124,10 +124,10 @@ class TextNode(object):
             self.value_node = value_node
         if container_node is not None:
             self.container_node = container_node
-        if object is not None:
-            self.object = object
         if missing_node is not None:
             self.missing_node = missing_node
+        if object is not None:
+            self.object = object
         if pojo is not None:
             self.pojo = pojo
         if number is not None:
@@ -136,8 +136,6 @@ class TextNode(object):
             self.integral_number = integral_number
         if floating_point_number is not None:
             self.floating_point_number = floating_point_number
-        if short is not None:
-            self.short = short
         if int is not None:
             self.int = int
         if long is not None:
@@ -156,6 +154,8 @@ class TextNode(object):
             self.boolean = boolean
         if binary is not None:
             self.binary = binary
+        if short is not None:
+            self.short = short
 
     @property
     def node_type(self):
@@ -290,27 +290,6 @@ class TextNode(object):
         self._container_node = container_node
 
     @property
-    def object(self):
-        """Gets the object of this TextNode.  # noqa: E501
-
-
-        :return: The object of this TextNode.  # noqa: E501
-        :rtype: bool
-        """
-        return self._object
-
-    @object.setter
-    def object(self, object):
-        """Sets the object of this TextNode.
-
-
-        :param object: The object of this TextNode.  # noqa: E501
-        :type: bool
-        """
-
-        self._object = object
-
-    @property
     def missing_node(self):
         """Gets the missing_node of this TextNode.  # noqa: E501
 
@@ -330,6 +309,27 @@ class TextNode(object):
         """
 
         self._missing_node = missing_node
+
+    @property
+    def object(self):
+        """Gets the object of this TextNode.  # noqa: E501
+
+
+        :return: The object of this TextNode.  # noqa: E501
+        :rtype: bool
+        """
+        return self._object
+
+    @object.setter
+    def object(self, object):
+        """Sets the object of this TextNode.
+
+
+        :param object: The object of this TextNode.  # noqa: E501
+        :type: bool
+        """
+
+        self._object = object
 
     @property
     def pojo(self):
@@ -414,27 +414,6 @@ class TextNode(object):
         """
 
         self._floating_point_number = floating_point_number
-
-    @property
-    def short(self):
-        """Gets the short of this TextNode.  # noqa: E501
-
-
-        :return: The short of this TextNode.  # noqa: E501
-        :rtype: bool
-        """
-        return self._short
-
-    @short.setter
-    def short(self, short):
-        """Sets the short of this TextNode.
-
-
-        :param short: The short of this TextNode.  # noqa: E501
-        :type: bool
-        """
-
-        self._short = short
 
     @property
     def int(self):
@@ -624,6 +603,27 @@ class TextNode(object):
         """
 
         self._binary = binary
+
+    @property
+    def short(self):
+        """Gets the short of this TextNode.  # noqa: E501
+
+
+        :return: The short of this TextNode.  # noqa: E501
+        :rtype: bool
+        """
+        return self._short
+
+    @short.setter
+    def short(self, short):
+        """Sets the short of this TextNode.
+
+
+        :param short: The short of this TextNode.  # noqa: E501
+        :type: bool
+        """
+
+        self._short = short
 
     def to_dict(self):
         """Returns the model properties as a dict"""

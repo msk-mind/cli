@@ -75,7 +75,7 @@ All URIs are relative to *http://localhost:8080*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BusinessApi* | [**get_metadata**](docs/BusinessApi.md#get_metadata) | **POST** /metadata | 
-*BusinessApi* | [**get_metadata_file_url**](docs/BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileURL | 
+*BusinessApi* | [**get_metadata_file_url**](docs/BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileUrl | 
 *OperationApi* | [**get_file_url**](docs/OperationApi.md#get_file_url) | **POST** /fileURL | 
 *OperationApi* | [**get_files**](docs/OperationApi.md#get_files) | **POST** /files | 
 
@@ -83,6 +83,9 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [DataFile](docs/DataFile.md)
+ - [MINDResponseListDataFile](docs/MINDResponseListDataFile.md)
+ - [MINDResponseListMapStringObject](docs/MINDResponseListMapStringObject.md)
+ - [MINDResponseString](docs/MINDResponseString.md)
  - [OperationalFilter](docs/OperationalFilter.md)
  - [TextNode](docs/TextNode.md)
 

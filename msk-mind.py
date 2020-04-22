@@ -2,7 +2,6 @@ import click
 import openapi_client
 from openapi_client.api_client import ApiClient
 from openapi_client.configuration import Configuration
-from util import pprint_ls
 
 @click.group()
 @click.pass_context
@@ -34,25 +33,7 @@ def get(ctx, query, download):
     if download:
         print(ctx.obj["business"].get_metadata_file_url(query))
     else:
-        pprint_ls(ctx.obj["business"].get_metadata(query))
-
-
-@cli.command()
-@click.pass_context
-@click.argument("name", required=False)
-def table(ctx, name):
-    """introspect on available tables and table details.
-
-    NAME - an optional table name.
-    If provided, return column details (name, type, comments) for the table.
-    """
-    result = []
-    if name:
-        result = ctx.obj["business"].get_metadata("describe " + name)
-        pprint_ls([(column['col_name'], column['data_type'], column['comment']) for column in result])
-    else:
-        result = ctx.obj["business"].get_metadata("show tables")
-        pprint_ls([table['tab_name'] for table in result])
+        print(ctx.obj["business"].get_metadata(query))
 
 
 if __name__ == '__main__':

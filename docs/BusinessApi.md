@@ -5,15 +5,15 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_metadata**](BusinessApi.md#get_metadata) | **POST** /metadata | 
-[**get_metadata_file_url**](BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileURL | 
+[**get_metadata_file_url**](BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileUrl | 
 
 
 # **get_metadata**
-> list[dict(str, object)] get_metadata(text_node)
+> MINDResponseListMapStringObject get_metadata(text_node)
 
 
 
-Get metadata
+Get metadata that match the query
 
 ### Example
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[dict(str, object)]**
+[**MINDResponseListMapStringObject**](MINDResponseListMapStringObject.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_metadata_file_url**
-> str get_metadata_file_url(text_node)
+> MINDResponseString get_metadata_file_url(text_node)
 
 
 
-Get a URL to the zipped data that match the criteria
+Get a URL to the zipped data of the query results
 
 ### Example
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**MINDResponseString**](MINDResponseString.md)
 
 ### Authorization
 

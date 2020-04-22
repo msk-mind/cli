@@ -83,42 +83,30 @@ Options:
 ```
 $ msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 
-{"patient.patient_id": "SPECTRUM-OV-004", "patient.dmp_patient_id": "P-0039734", "patient.gender": "FEMALE", "patient.race": "WHITE", "patient.vital_status": "1.0", "patient.patient_last_known_alive_age": 26055, "patient.icdo_histology_code": "M8461/3", "patient.icdo_site_code": "C569", "patient.diagnosis_pathology_stage_group": "3C", "patient.diagnosis_clinical_stage_group": "3C", "patient.age_at_diagnosis": 25921, "patient.project_id": "OV"}
-{"patient.patient_id": "SPECTRUM-OV-005", "patient.dmp_patient_id": "P-0040521", "patient.gender": "FEMALE", "patient.race": "WHITE", "patient.vital_status": "1.0", "patient.patient_last_known_alive_age": 21413, "patient.icdo_histology_code": "M8461/3", "patient.icdo_site_code": "C569", "patient.diagnosis_pathology_stage_group": "", "patient.diagnosis_clinical_stage_group": "3C", "patient.age_at_diagnosis": 21050, "patient.project_id": "OV"}
-...
+{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
+ 'payload': [{'patient.age_at_diagnosis': 24525,
+              'patient.diagnosis_clinical_stage_group': '99',
+              'patient.diagnosis_pathology_stage_group': '3C',
+              'patient.gender': 'FEMALE',
+              'patient.icdo_histology_code': 'M8980/3',
+              'patient.icdo_site_code': 'C569',
+              'patient.patient_dmp_id': 'P-0039384',
+              'patient.patient_id': 'SPECTRUM-OV-001',
+              'patient.patient_last_known_alive_age': 25139,
+              'patient.project_id': 'OV',
+              'patient.race': 'WHITE',
+              'patient.vital_status': '1.0'},
+  ...
+ 'status': 'OK',
+ 'summary': "You are off to great places, today's your day."}
 ```
 
 2. Get url to patient data bundle with the optional download flag
 ```
 $ msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 
-http://<vm_ip>:50070/data/tmp/1587488693850.gz
-```
-
-3. Get available tables
-```
-$ msk-mind table
-
-clinical_diagnosis
-clinical_patient
-patient
-test
-```
-
-4. Get column details on table patient
-```
-$ msk-mind table patient
-
-('patient_id', 'string', '')
-('patient_dmp_id', 'string', '')
-('gender', 'string', '')
-('race', 'string', '')
-('vital_status', 'string', '')
-('patient_last_known_alive_age', 'int', '')
-('icdo_histology_code', 'string', '')
-('icdo_site_code', 'string', '')
-('diagnosis_pathology_stage_group', 'string', '')
-('diagnosis_clinical_stage_group', 'string', '')
-('age_at_diagnosis', 'int', '')
-('project_id', 'string', '')
+{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
+ 'payload': 'http://140.163.78.220:50070/data/tmp/1587571607403.gz',
+ 'status': 'OK',
+ 'summary': "You are off to great places, today's your day."}
 ```

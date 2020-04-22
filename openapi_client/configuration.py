@@ -332,7 +332,7 @@ class Configuration(object):
         """
         return [
             {
-                'url': "http://localhost:8080/",
+                'url': "http://localhost:8080",
                 'description': "Generated server url",
             }
         ]

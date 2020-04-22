@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_file_url**
-> str get_file_url(operational_filter)
+> MINDResponseString get_file_url(operational_filter)
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**MINDResponseString**](MINDResponseString.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_files**
-> list[DataFile] get_files(operational_filter)
+> MINDResponseListDataFile get_files(operational_filter)
 
 
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DataFile]**](DataFile.md)
+[**MINDResponseListDataFile**](MINDResponseListDataFile.md)
 
 ### Authorization
 
