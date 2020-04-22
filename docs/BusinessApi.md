@@ -5,11 +5,11 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_metadata**](BusinessApi.md#get_metadata) | **POST** /metadata | 
-[**get_metadata_file_url**](BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileUrl | 
+[**get_metadata_url**](BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
 
 
 # **get_metadata**
-> MINDResponseListMapStringObject get_metadata(text_node)
+> MindResponseListMapStringObject get_metadata(text_node)
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MINDResponseListMapStringObject**](MINDResponseListMapStringObject.md)
+[**MindResponseListMapStringObject**](MindResponseListMapStringObject.md)
 
 ### Authorization
 
@@ -63,12 +63,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_metadata_file_url**
-> MINDResponseString get_metadata_file_url(text_node)
+# **get_metadata_url**
+> MindResponseString get_metadata_url(text_node)
 
 
 
-Get a URL to the zipped data of the query results
+Get a URL to the metadata bundle that match the query
 
 ### Example
 
@@ -86,10 +86,10 @@ with openapi_client.ApiClient() as api_client:
     text_node = openapi_client.TextNode() # TextNode | SQL string to query business data
 
     try:
-        api_response = api_instance.get_metadata_file_url(text_node)
+        api_response = api_instance.get_metadata_url(text_node)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BusinessApi->get_metadata_file_url: %s\n" % e)
+        print("Exception when calling BusinessApi->get_metadata_url: %s\n" % e)
 ```
 
 ### Parameters
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MINDResponseString**](MINDResponseString.md)
+[**MindResponseString**](MindResponseString.md)
 
 ### Authorization
 

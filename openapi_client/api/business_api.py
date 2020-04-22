@@ -54,7 +54,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MINDResponseListMapStringObject
+        :return: MindResponseListMapStringObject
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -81,7 +81,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MINDResponseListMapStringObject, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponseListMapStringObject, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -146,7 +146,7 @@ class BusinessApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MINDResponseListMapStringObject',  # noqa: E501
+            response_type='MindResponseListMapStringObject',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -154,13 +154,13 @@ class BusinessApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_metadata_file_url(self, text_node, **kwargs):  # noqa: E501
-        """get_metadata_file_url  # noqa: E501
+    def get_metadata_url(self, text_node, **kwargs):  # noqa: E501
+        """get_metadata_url  # noqa: E501
 
-        Get a URL to the zipped data of the query results  # noqa: E501
+        Get a URL to the metadata bundle that match the query  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_metadata_file_url(text_node, async_req=True)
+        >>> thread = api.get_metadata_url(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -172,20 +172,20 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MINDResponseString
+        :return: MindResponseString
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_metadata_file_url_with_http_info(text_node, **kwargs)  # noqa: E501
+        return self.get_metadata_url_with_http_info(text_node, **kwargs)  # noqa: E501
 
-    def get_metadata_file_url_with_http_info(self, text_node, **kwargs):  # noqa: E501
-        """get_metadata_file_url  # noqa: E501
+    def get_metadata_url_with_http_info(self, text_node, **kwargs):  # noqa: E501
+        """get_metadata_url  # noqa: E501
 
-        Get a URL to the zipped data of the query results  # noqa: E501
+        Get a URL to the metadata bundle that match the query  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_metadata_file_url_with_http_info(text_node, async_req=True)
+        >>> thread = api.get_metadata_url_with_http_info(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -199,7 +199,7 @@ class BusinessApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MINDResponseString, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponseString, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -222,14 +222,14 @@ class BusinessApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_metadata_file_url" % key
+                    " to method get_metadata_url" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'text_node' is set
         if self.api_client.client_side_validation and ('text_node' not in local_var_params or  # noqa: E501
                                                         local_var_params['text_node'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `text_node` when calling `get_metadata_file_url`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `text_node` when calling `get_metadata_url`")  # noqa: E501
 
         collection_formats = {}
 
@@ -257,14 +257,14 @@ class BusinessApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/metadata/fileUrl', 'POST',
+            '/metadata/url', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MINDResponseString',  # noqa: E501
+            response_type='MindResponseString',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

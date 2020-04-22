@@ -1,4 +1,4 @@
-# MINDResponseString
+# MindResponseString
 
 ## Properties
 Name | Type | Description | Notes

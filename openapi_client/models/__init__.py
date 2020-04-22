@@ -14,9 +14,11 @@
 from __future__ import absolute_import
 
 # import models into model package
-from openapi_client.models.data_file import DataFile
-from openapi_client.models.mind_response_list_data_file import MINDResponseListDataFile
-from openapi_client.models.mind_response_list_map_string_object import MINDResponseListMapStringObject
-from openapi_client.models.mind_response_string import MINDResponseString
-from openapi_client.models.operational_filter import OperationalFilter
+from openapi_client.models.atlas_classification import AtlasClassification
+from openapi_client.models.atlas_entity import AtlasEntity
+from openapi_client.models.atlas_term_assignment_header import AtlasTermAssignmentHeader
+from openapi_client.models.mind_response_list_atlas_entity import MindResponseListAtlasEntity
+from openapi_client.models.mind_response_list_map_string_object import MindResponseListMapStringObject
+from openapi_client.models.mind_response_string import MindResponseString
 from openapi_client.models.text_node import TextNode
+from openapi_client.models.time_boundary import TimeBoundary

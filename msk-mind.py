@@ -21,19 +21,23 @@ def cli(ctx, host):
 @cli.command()
 @click.pass_context
 @click.argument("query")
-@click.option("--download", is_flag=True, default=False, show_default=True)
-def get(ctx, query, download):
-    """get data that corresponds to the given query.
+def metadata(ctx, query):
+    """query domain metadata.
 
     QUERY - a SQL select statement.
-
-    DOWNLOAD - an optional flag.
-    If the flat is set, return a URL to the query result set.
     """
-    if download:
-        print(ctx.obj["business"].get_metadata_file_url(query))
-    else:
-        print(ctx.obj["business"].get_metadata(query))
+    print(ctx.obj["business"].get_metadata(query))
+
+
+@cli.command()
+@click.pass_context
+@click.argument("query")
+def download_metadata(ctx, query):
+    """download domain metadata.
+
+    QUERY - a SQL select statement.
+    """
+    print(ctx.obj["business"].get_metadata_url(query))
 
 
 if __name__ == '__main__':

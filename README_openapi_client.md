@@ -75,19 +75,21 @@ All URIs are relative to *http://localhost:8080*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BusinessApi* | [**get_metadata**](docs/BusinessApi.md#get_metadata) | **POST** /metadata | 
-*BusinessApi* | [**get_metadata_file_url**](docs/BusinessApi.md#get_metadata_file_url) | **POST** /metadata/fileUrl | 
-*OperationApi* | [**get_file_url**](docs/OperationApi.md#get_file_url) | **POST** /fileURL | 
+*BusinessApi* | [**get_metadata_url**](docs/BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
+*OperationApi* | [**get_file_url**](docs/OperationApi.md#get_file_url) | **POST** /files/url | 
 *OperationApi* | [**get_files**](docs/OperationApi.md#get_files) | **POST** /files | 
 
 
 ## Documentation For Models
 
- - [DataFile](docs/DataFile.md)
- - [MINDResponseListDataFile](docs/MINDResponseListDataFile.md)
- - [MINDResponseListMapStringObject](docs/MINDResponseListMapStringObject.md)
- - [MINDResponseString](docs/MINDResponseString.md)
- - [OperationalFilter](docs/OperationalFilter.md)
+ - [AtlasClassification](docs/AtlasClassification.md)
+ - [AtlasEntity](docs/AtlasEntity.md)
+ - [AtlasTermAssignmentHeader](docs/AtlasTermAssignmentHeader.md)
+ - [MindResponseListAtlasEntity](docs/MindResponseListAtlasEntity.md)
+ - [MindResponseListMapStringObject](docs/MindResponseListMapStringObject.md)
+ - [MindResponseString](docs/MindResponseString.md)
  - [TextNode](docs/TextNode.md)
+ - [TimeBoundary](docs/TimeBoundary.md)
 
 
 ## Documentation For Authorization

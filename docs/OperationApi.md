@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_file_url**](OperationApi.md#get_file_url) | **POST** /fileURL | 
+[**get_file_url**](OperationApi.md#get_file_url) | **POST** /files/url | 
 [**get_files**](OperationApi.md#get_files) | **POST** /files | 
 
 
 # **get_file_url**
-> MINDResponseString get_file_url(operational_filter)
+> MindResponseString get_file_url(text_node)
 
 
 
@@ -28,10 +28,10 @@ from pprint import pprint
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OperationApi(api_client)
-    operational_filter = openapi_client.OperationalFilter() # OperationalFilter | Filter criteria for operational data
+    text_node = openapi_client.TextNode() # TextNode | Filter criteria for operational data
 
     try:
-        api_response = api_instance.get_file_url(operational_filter)
+        api_response = api_instance.get_file_url(text_node)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OperationApi->get_file_url: %s\n" % e)
@@ -41,11 +41,11 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **operational_filter** | [**OperationalFilter**](OperationalFilter.md)| Filter criteria for operational data | 
+ **text_node** | [**TextNode**](TextNode.md)| Filter criteria for operational data | 
 
 ### Return type
 
-[**MINDResponseString**](MINDResponseString.md)
+[**MindResponseString**](MindResponseString.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_files**
-> MINDResponseListDataFile get_files(operational_filter)
+> MindResponseListAtlasEntity get_files(text_node)
 
 
 
@@ -83,10 +83,10 @@ from pprint import pprint
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OperationApi(api_client)
-    operational_filter = openapi_client.OperationalFilter() # OperationalFilter | Filter criteria for operational data
+    text_node = openapi_client.TextNode() # TextNode | Filter criteria for operational data
 
     try:
-        api_response = api_instance.get_files(operational_filter)
+        api_response = api_instance.get_files(text_node)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OperationApi->get_files: %s\n" % e)
@@ -96,11 +96,11 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **operational_filter** | [**OperationalFilter**](OperationalFilter.md)| Filter criteria for operational data | 
+ **text_node** | [**TextNode**](TextNode.md)| Filter criteria for operational data | 
 
 ### Return type
 
-[**MINDResponseListDataFile**](MINDResponseListDataFile.md)
+[**MindResponseListAtlasEntity**](MindResponseListAtlasEntity.md)
 
 ### Authorization
 

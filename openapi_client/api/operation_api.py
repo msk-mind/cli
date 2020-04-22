@@ -36,17 +36,17 @@ class OperationApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_file_url(self, operational_filter, **kwargs):  # noqa: E501
+    def get_file_url(self, text_node, **kwargs):  # noqa: E501
         """get_file_url  # noqa: E501
 
         Get a URL to the zipped data that match the criteria  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_file_url(operational_filter, async_req=True)
+        >>> thread = api.get_file_url(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OperationalFilter operational_filter: Filter criteria for operational data (required)
+        :param TextNode text_node: Filter criteria for operational data (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -54,24 +54,24 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MINDResponseString
+        :return: MindResponseString
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_file_url_with_http_info(operational_filter, **kwargs)  # noqa: E501
+        return self.get_file_url_with_http_info(text_node, **kwargs)  # noqa: E501
 
-    def get_file_url_with_http_info(self, operational_filter, **kwargs):  # noqa: E501
+    def get_file_url_with_http_info(self, text_node, **kwargs):  # noqa: E501
         """get_file_url  # noqa: E501
 
         Get a URL to the zipped data that match the criteria  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_file_url_with_http_info(operational_filter, async_req=True)
+        >>> thread = api.get_file_url_with_http_info(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OperationalFilter operational_filter: Filter criteria for operational data (required)
+        :param TextNode text_node: Filter criteria for operational data (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -81,7 +81,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MINDResponseString, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponseString, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -89,7 +89,7 @@ class OperationApi(object):
         local_var_params = locals()
 
         all_params = [
-            'operational_filter'
+            'text_node'
         ]
         all_params.extend(
             [
@@ -108,10 +108,10 @@ class OperationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'operational_filter' is set
-        if self.api_client.client_side_validation and ('operational_filter' not in local_var_params or  # noqa: E501
-                                                        local_var_params['operational_filter'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `operational_filter` when calling `get_file_url`")  # noqa: E501
+        # verify the required parameter 'text_node' is set
+        if self.api_client.client_side_validation and ('text_node' not in local_var_params or  # noqa: E501
+                                                        local_var_params['text_node'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `text_node` when calling `get_file_url`")  # noqa: E501
 
         collection_formats = {}
 
@@ -125,8 +125,8 @@ class OperationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'operational_filter' in local_var_params:
-            body_params = local_var_params['operational_filter']
+        if 'text_node' in local_var_params:
+            body_params = local_var_params['text_node']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -139,14 +139,14 @@ class OperationApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/fileURL', 'POST',
+            '/files/url', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MINDResponseString',  # noqa: E501
+            response_type='MindResponseString',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -154,17 +154,17 @@ class OperationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_files(self, operational_filter, **kwargs):  # noqa: E501
+    def get_files(self, text_node, **kwargs):  # noqa: E501
         """get_files  # noqa: E501
 
         Get operational metadata  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_files(operational_filter, async_req=True)
+        >>> thread = api.get_files(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OperationalFilter operational_filter: Filter criteria for operational data (required)
+        :param TextNode text_node: Filter criteria for operational data (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -172,24 +172,24 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MINDResponseListDataFile
+        :return: MindResponseListAtlasEntity
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_files_with_http_info(operational_filter, **kwargs)  # noqa: E501
+        return self.get_files_with_http_info(text_node, **kwargs)  # noqa: E501
 
-    def get_files_with_http_info(self, operational_filter, **kwargs):  # noqa: E501
+    def get_files_with_http_info(self, text_node, **kwargs):  # noqa: E501
         """get_files  # noqa: E501
 
         Get operational metadata  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_files_with_http_info(operational_filter, async_req=True)
+        >>> thread = api.get_files_with_http_info(text_node, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OperationalFilter operational_filter: Filter criteria for operational data (required)
+        :param TextNode text_node: Filter criteria for operational data (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -199,7 +199,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MINDResponseListDataFile, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponseListAtlasEntity, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -207,7 +207,7 @@ class OperationApi(object):
         local_var_params = locals()
 
         all_params = [
-            'operational_filter'
+            'text_node'
         ]
         all_params.extend(
             [
@@ -226,10 +226,10 @@ class OperationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'operational_filter' is set
-        if self.api_client.client_side_validation and ('operational_filter' not in local_var_params or  # noqa: E501
-                                                        local_var_params['operational_filter'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `operational_filter` when calling `get_files`")  # noqa: E501
+        # verify the required parameter 'text_node' is set
+        if self.api_client.client_side_validation and ('text_node' not in local_var_params or  # noqa: E501
+                                                        local_var_params['text_node'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `text_node` when calling `get_files`")  # noqa: E501
 
         collection_formats = {}
 
@@ -243,8 +243,8 @@ class OperationApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'operational_filter' in local_var_params:
-            body_params = local_var_params['operational_filter']
+        if 'text_node' in local_var_params:
+            body_params = local_var_params['text_node']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -264,7 +264,7 @@ class OperationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MINDResponseListDataFile',  # noqa: E501
+            response_type='MindResponseListAtlasEntity',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

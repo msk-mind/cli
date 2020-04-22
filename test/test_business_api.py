@@ -34,8 +34,8 @@ class TestBusinessApi(unittest.TestCase):
         """
         pass
 
-    def test_get_metadata_file_url(self):
-        """Test case for get_metadata_file_url
+    def test_get_metadata_url(self):
+        """Test case for get_metadata_url
 
         """
         pass

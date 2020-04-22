@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import openapi_client
-from openapi_client.models.mind_response_list_map_string_object import MINDResponseListMapStringObject  # noqa: E501
+from openapi_client.models.mind_response_list_map_string_object import MindResponseListMapStringObject  # noqa: E501
 from openapi_client.rest import ApiException
 
-class TestMINDResponseListMapStringObject(unittest.TestCase):
-    """MINDResponseListMapStringObject unit test stubs"""
+class TestMindResponseListMapStringObject(unittest.TestCase):
+    """MindResponseListMapStringObject unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,13 +29,13 @@ class TestMINDResponseListMapStringObject(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test MINDResponseListMapStringObject
+        """Test MindResponseListMapStringObject
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openapi_client.models.mind_response_list_map_string_object.MINDResponseListMapStringObject()  # noqa: E501
+        # model = openapi_client.models.mind_response_list_map_string_object.MindResponseListMapStringObject()  # noqa: E501
         if include_optional :
-            return MINDResponseListMapStringObject(
+            return MindResponseListMapStringObject(
                 status = 'OK', 
                 summary = '0', 
                 description = '0', 
@@ -46,11 +46,11 @@ class TestMINDResponseListMapStringObject(unittest.TestCase):
                     ]
             )
         else :
-            return MINDResponseListMapStringObject(
+            return MindResponseListMapStringObject(
         )
 
-    def testMINDResponseListMapStringObject(self):
-        """Test MINDResponseListMapStringObject"""
+    def testMindResponseListMapStringObject(self):
+        """Test MindResponseListMapStringObject"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

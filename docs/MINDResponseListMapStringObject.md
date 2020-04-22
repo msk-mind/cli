@@ -1,4 +1,4 @@
-# MINDResponseListMapStringObject
+# MindResponseListMapStringObject
 
 ## Properties
 Name | Type | Description | Notes

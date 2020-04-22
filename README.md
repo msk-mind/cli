@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ### View Help
 ```
 $ msk-mind --help
-Usage: msk-mind.py [OPTIONS] COMMAND [ARGS]...
+Usage: msk-mind [OPTIONS] COMMAND [ARGS]...
 
   Welcome to MSK MIND!
 
@@ -43,35 +43,29 @@ Options:
   --help       Show this message and exit.
 
 Commands:
-  get    get data that corresponds to the given query.
-  table  introspect on available tables and table details.
+  download-metadata  download domain metadata.
+  metadata           query domain metadata.
 ```
 
 ```
-$ msk-mind get --help
-Usage: msk-mind.py get [OPTIONS] QUERY
+$ msk-mind metadata --help
+Usage: msk-mind metadata [OPTIONS] QUERY
 
-  get data that corresponds to the given query.
+  query domain metadata.
 
   QUERY - a SQL select statement.
 
-  DOWNLOAD - an optional flag. If the flat is set, return a URL to the query
-  result set.
-
 Options:
-  --download  [default: False]
-  --help      Show this message and exit.
-
+  --help  Show this message and exit.
 ```
 
 ```
-$ msk-mind table --help
-Usage: msk-mind.py table [OPTIONS] [NAME]
+$ msk-mind download-metadata --help
+Usage: msk-mind download-metadata [OPTIONS] QUERY
 
-  introspect on available tables and table details.
+  download domain metadata.
 
-  NAME - an optional table name. If provided, return column details (name,
-  type, comments) for the table.
+  QUERY - a SQL select statement.
 
 Options:
   --help  Show this message and exit.
@@ -81,7 +75,7 @@ Options:
 
 1. Get patient data where patients have clinical stage '3C'
 ```
-$ msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
+$ msk-mind metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 
 {'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
  'payload': [{'patient.age_at_diagnosis': 24525,
@@ -101,12 +95,12 @@ $ msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C
  'summary': "You are off to great places, today's your day."}
 ```
 
-2. Get url to patient data bundle with the optional download flag
+2. Get url to patient data bundle
 ```
-$ msk-mind get "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
+$ msk-mind download-metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 
 {'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': 'http://140.163.78.220:50070/data/tmp/1587571607403.gz',
+ 'payload': 'http://<vm_ip>:50070/data/tmp/1587571607403.gz',
  'status': 'OK',
  'summary': "You are off to great places, today's your day."}
 ```
