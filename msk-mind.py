@@ -40,5 +40,27 @@ def download_metadata(ctx, query):
     print(ctx.obj["business"].get_metadata_url(query))
 
 
+@cli.command()
+@click.pass_context
+@click.argument("query")
+def files(ctx, query):
+    """query operational metadata.
+
+    QUERY - Atlas DSL query.
+    """
+    print(ctx.obj["op"].get_files(query))
+
+
+@cli.command()
+@click.pass_context
+@click.argument("query")
+def download_files(ctx, query):
+    """download operational metadata.
+
+    QUERY - Atlas DSL query.
+    """
+    print(ctx.obj["op"].get_file_url(query))
+
+
 if __name__ == '__main__':
 	cli()
