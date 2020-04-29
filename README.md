@@ -103,8 +103,7 @@ Options:
 ```
 $ msk-mind metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 
-{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': [{'patient.age_at_diagnosis': 24525,
+{'payload': [{'patient.age_at_diagnosis': 24525,
               'patient.diagnosis_clinical_stage_group': '99',
               'patient.diagnosis_pathology_stage_group': '3C',
               'patient.gender': 'FEMALE',
@@ -117,36 +116,30 @@ $ msk-mind metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group 
               'patient.race': 'WHITE',
               'patient.vital_status': '1.0'},
   ...
- 'status': 'OK',
- 'summary': "You are off to great places, today's your day."}
+ 'status': 'OK'}
 ```
 
 2. Get url to patient data bundle
 ```
 $ msk-mind download-metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 
-{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': 'http://<vm_ip>:50070/data/tmp/1587571607403.gz',
- 'status': 'OK',
- 'summary': "You are off to great places, today's your day."}
+{'payload': 'http://<vm_ip>:50070/data/tmp/1587571607403.gz',
+ 'status': 'OK'}
 ```
 
 3. Get operational metadata for files
 ```
 $ msk-mind files "from hive_table where name like '*clinical*' select name, owner"
 
-{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': [{'name': 'clinical_patient', 'owner': 'raj_ops'},
+{'payload': [{'name': 'clinical_patient', 'owner': 'raj_ops'},
              {'name': 'clinical_diagnosis', 'owner': 'raj_ops'}],
- 'status': 'OK',
- 'summary': "You are off to great places, today's your day."}
+ 'status': 'OK'}
 ```
 
 ```
 $ msk-mind files "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
 
-{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': [{'name': '/user/hive/genomic_cna',
+{'payload': [{'name': '/user/hive/genomic_cna',
               'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna',
               'qualifiedName': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna@Sandbox'},
              {'name': '/user/hive/genomic_maf',
@@ -155,16 +148,13 @@ $ msk-mind files "from hdfs_path where name like '*genomic*' select name, qualif
              {'name': '/user/hive/genomic_bam',
               'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_bam',
               'qualifiedName': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_bam@Sandbox'}],
- 'status': 'OK',
- 'summary': "You are off to great places, today's your day."}
+ 'status': 'OK'}
 ```
 
 4. Get url to the data bundle
 ```
 $ msk-mind download-files "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
 
-{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': 'http://<vm_ip>:50070/data/tmp/1588078078927.gz',
- 'status': 'OK',
- 'summary': "You are off to great places, today's your day."}
+{'payload': 'http://<vm_ip>:50070/data/tmp/1588078078927.gz',
+ 'status': 'OK'}
 ```
