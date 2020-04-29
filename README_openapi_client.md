@@ -82,14 +82,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AtlasClassification](docs/AtlasClassification.md)
- - [AtlasEntity](docs/AtlasEntity.md)
- - [AtlasTermAssignmentHeader](docs/AtlasTermAssignmentHeader.md)
- - [MindResponseListAtlasEntity](docs/MindResponseListAtlasEntity.md)
  - [MindResponseListMapStringObject](docs/MindResponseListMapStringObject.md)
+ - [MindResponseListString](docs/MindResponseListString.md)
  - [MindResponseString](docs/MindResponseString.md)
  - [TextNode](docs/TextNode.md)
- - [TimeBoundary](docs/TimeBoundary.md)
 
 
 ## Documentation For Authorization
