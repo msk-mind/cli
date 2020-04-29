@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import openapi_client
-from openapi_client.models.time_boundary import TimeBoundary  # noqa: E501
+from openapi_client.models.mind_response_list_object import MindResponseListObject  # noqa: E501
 from openapi_client.rest import ApiException
 
-class TestTimeBoundary(unittest.TestCase):
-    """TimeBoundary unit test stubs"""
+class TestMindResponseListObject(unittest.TestCase):
+    """MindResponseListObject unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,23 +29,26 @@ class TestTimeBoundary(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test TimeBoundary
+        """Test MindResponseListObject
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openapi_client.models.time_boundary.TimeBoundary()  # noqa: E501
+        # model = openapi_client.models.mind_response_list_object.MindResponseListObject()  # noqa: E501
         if include_optional :
-            return TimeBoundary(
-                start_time = '0', 
-                end_time = '0', 
-                time_zone = '0'
+            return MindResponseListObject(
+                status = 'OK', 
+                summary = '0', 
+                description = '0', 
+                payload = [
+                    None
+                    ]
             )
         else :
-            return TimeBoundary(
+            return MindResponseListObject(
         )
 
-    def testTimeBoundary(self):
-        """Test TimeBoundary"""
+    def testMindResponseListObject(self):
+        """Test MindResponseListObject"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

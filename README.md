@@ -131,64 +131,30 @@ $ msk-mind download-metadata "SELECT * FROM patient WHERE diagnosis_clinical_sta
  'summary': "You are off to great places, today's your day."}
 ```
 
-3. Get operational metadata for genomic files
+3. Get operational metadata for files
 ```
-$ msk-mind files "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
+$ msk-mind files "from hive_table where name like '*clinical*' select name, owner"
 
 {'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
- 'payload': [{'attributes': {'aliases': None,
-                             'columns': [{'guid': 'c3a7a2c0-8ce1-4495-85ee-986fe0314009',
-                                          'typeName': 'hive_column'},
-                                         {'guid': '1c531a05-e64c-4168-9cfb-41c667f0c2df',
-                                          'typeName': 'hive_column'},
-                                         {'guid': '3505a8e2-515c-4ca9-8229-0ec2ce6d06b3',
-                                          'typeName': 'hive_column'},
-                                         {'guid': '6872a6ed-f68a-41c1-b9b0-a6f0d5b020fe',
-                                          'typeName': 'hive_column'},
-                                         {'guid': 'd0c05a06-ca3d-42f7-9c47-27a8ff4aa902',
-                                          'typeName': 'hive_column'},
-                                         {'guid': 'd3e4aa5d-4b5f-4875-b07f-d7aaadcc0af2',
-                                          'typeName': 'hive_column'},
-                                         {'guid': 'bcb30b2f-20e6-41b1-ad1e-56479b9c609c',
-                                          'typeName': 'hive_column'},
-                                         {'guid': 'f89e825d-97b4-4abe-942f-638b233cb416',
-                                          'typeName': 'hive_column'}],
-                             'comment': None,
-                             'createTime': 1587498187000,
-                             'db': {'guid': 'c61cceb3-fdda-4f15-be8d-b19ef2295559',
-                                    'typeName': 'hive_db'},
-                             'description': None,
-                             'lastAccessTime': 1587498187000,
-                             'name': 'genomic_bam',
-                             'owner': 'maria_dev',
-                             'parameters': {'EXTERNAL': 'TRUE',
-                                            'skip.header.line.count': '1',
-                                            'transient_lastDdlTime': '1587498187'},
-                             'partitionKeys': None,
-                             'qualifiedName': 'default.genomic_bam@Sandbox',
-                             'retention': 0,
-                             'sd': {'guid': '68df2335-24a9-48a0-b08e-b171b86a6e51',
-                                    'typeName': 'hive_storagedesc'},
-                             'tableType': 'EXTERNAL_TABLE',
-                             'temporary': False,
-                             'viewExpandedText': None,
-                             'viewOriginalText': None},
-              'classifications': [],
-              'create_time': datetime.datetime(2020, 4, 21, 19, 43, 7, 812000, tzinfo=tzutc()),
-              'created_by': 'maria_dev',
-              'guid': '6cabc390-f2d3-4faf-9498-89c2fa2f1950',
-              'home_id': None,
-              'is_proxy': None,
-              'meanings': None,
-              'provenance_type': 0,
-              'proxy': False,
-              'relationship_attributes': None,
-              'status': 'ACTIVE',
-              'type_name': 'hive_table',
-              'update_time': datetime.datetime(2020, 4, 21, 19, 43, 7, 812000, tzinfo=tzutc()),
-              'updated_by': 'maria_dev',
-              'version': 0},
-              ...]
+ 'payload': [{'name': 'clinical_patient', 'owner': 'raj_ops'},
+             {'name': 'clinical_diagnosis', 'owner': 'raj_ops'}],
+ 'status': 'OK',
+ 'summary': "You are off to great places, today's your day."}
+```
+
+```
+$ msk-mind files "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
+
+{'description': 'https://msk-mind.github.io/docs/ops.html#happy_day_mate',
+ 'payload': [{'name': '/user/hive/genomic_cna',
+              'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna',
+              'qualifiedName': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna@Sandbox'},
+             {'name': '/user/hive/genomic_maf',
+              'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_maf',
+              'qualifiedName': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_maf@Sandbox'},
+             {'name': '/user/hive/genomic_bam',
+              'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_bam',
+              'qualifiedName': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_bam@Sandbox'}],
  'status': 'OK',
  'summary': "You are off to great places, today's your day."}
 ```
