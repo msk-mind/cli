@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_file_url**
-> MindResponseString get_file_url(text_node)
+> MindResponse get_file_url(text_node)
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MindResponseString**](MindResponseString.md)
+[**MindResponse**](MindResponse.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_files**
-> MindResponseListObject get_files(text_node)
+> MindResponse get_files(text_node)
 
 
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MindResponseListObject**](MindResponseListObject.md)
+[**MindResponse**](MindResponse.md)
 
 ### Authorization
 

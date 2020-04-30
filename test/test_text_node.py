@@ -40,6 +40,7 @@ class TestTextNode(unittest.TestCase):
                 empty = True, 
                 array = True, 
                 null = True, 
+                short = True, 
                 value_node = True, 
                 container_node = True, 
                 missing_node = True, 
@@ -56,8 +57,7 @@ class TestTextNode(unittest.TestCase):
                 big_integer = True, 
                 textual = True, 
                 boolean = True, 
-                binary = True, 
-                short = True
+                binary = True
             )
         else :
             return TextNode(

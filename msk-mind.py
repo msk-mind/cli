@@ -2,6 +2,7 @@ import click
 import openapi_client
 from openapi_client.api_client import ApiClient
 from openapi_client.configuration import Configuration
+from util import *
 
 @click.group()
 @click.pass_context
@@ -26,7 +27,7 @@ def metadata(ctx, query):
 
     QUERY - a SQL select statement.
     """
-    print(ctx.obj["business"].get_metadata(query))
+    print_mind_reponse(ctx.obj["business"].get_metadata(query))
 
 
 @cli.command()
@@ -37,7 +38,7 @@ def download_metadata(ctx, query):
 
     QUERY - a SQL select statement.
     """
-    print(ctx.obj["business"].get_metadata_url(query))
+    print_mind_reponse(ctx.obj["business"].get_metadata_url(query))
 
 
 @cli.command()
@@ -48,7 +49,7 @@ def files(ctx, query):
 
     QUERY - Atlas DSL query.
     """
-    print(ctx.obj["op"].get_files(query))
+    print_mind_reponse(ctx.obj["op"].get_files(query))
 
 
 @cli.command()
@@ -59,7 +60,7 @@ def download_files(ctx, query):
 
     QUERY - Atlas DSL query.
     """
-    print(ctx.obj["op"].get_file_url(query))
+    print_mind_reponse(ctx.obj["op"].get_file_url(query))
 
 
 if __name__ == '__main__':

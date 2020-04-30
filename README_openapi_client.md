@@ -82,9 +82,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [MindResponseListMapStringObject](docs/MindResponseListMapStringObject.md)
- - [MindResponseListString](docs/MindResponseListString.md)
- - [MindResponseString](docs/MindResponseString.md)
+ - [MindErrorResponse](docs/MindErrorResponse.md)
+ - [MindResponse](docs/MindResponse.md)
+ - [MindSuccessResponse](docs/MindSuccessResponse.md)
  - [TextNode](docs/TextNode.md)
 
 
