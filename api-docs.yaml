@@ -1,0 +1,186 @@
+openapi: 3.0.1
+info:
+  title: MSK-MIND REST API
+  description: MSK-MIND REST API
+  version: v0.0.1
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+tags:
+- name: Operation
+  description: interface to operational data
+- name: Business
+  description: interface to business data
+paths:
+  /metadata:
+    post:
+      tags:
+      - Business
+      description: Get metadata that match the query
+      operationId: getMetadata
+      requestBody:
+        description: SQL string to query business data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /metadata/url:
+    post:
+      tags:
+      - Business
+      description: Get a URL to the metadata bundle that match the query
+      operationId: getMetadataUrl
+      requestBody:
+        description: SQL string to query business data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /files:
+    post:
+      tags:
+      - Operation
+      description: Get operational metadata
+      operationId: getFiles
+      requestBody:
+        description: Filter criteria for operational data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /files/url:
+    post:
+      tags:
+      - Operation
+      description: Get a URL to the zipped data that match the criteria
+      operationId: getFileUrl
+      requestBody:
+        description: Filter criteria for operational data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+components:
+  schemas:
+    TextNode:
+      type: object
+      properties:
+        nodeType:
+          type: string
+          enum:
+          - ARRAY
+          - BINARY
+          - BOOLEAN
+          - MISSING
+          - "NULL"
+          - NUMBER
+          - OBJECT
+          - POJO
+          - STRING
+        empty:
+          type: boolean
+        array:
+          type: boolean
+        null:
+          type: boolean
+        short:
+          type: boolean
+        valueNode:
+          type: boolean
+        containerNode:
+          type: boolean
+        missingNode:
+          type: boolean
+        object:
+          type: boolean
+        pojo:
+          type: boolean
+        number:
+          type: boolean
+        integralNumber:
+          type: boolean
+        floatingPointNumber:
+          type: boolean
+        int:
+          type: boolean
+        long:
+          type: boolean
+        float:
+          type: boolean
+        double:
+          type: boolean
+        bigDecimal:
+          type: boolean
+        bigInteger:
+          type: boolean
+        textual:
+          type: boolean
+        boolean:
+          type: boolean
+        binary:
+          type: boolean
+    MindResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+          - ERROR
+        payload:
+          type: object
+      oneOf:
+        - $ref: '#/components/schemas/MindSuccessResponse'
+        - $ref: '#/components/schemas/MindErrorResponse'
+    MindSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+        payload:
+          type: object
+    MindErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - ERROR
+        summary:
+          type: string
+        description:
+          type: string

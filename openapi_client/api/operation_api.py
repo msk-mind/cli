@@ -54,7 +54,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MindResponseString
+        :return: MindResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -81,7 +81,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MindResponseString, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -146,7 +146,7 @@ class OperationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MindResponseString',  # noqa: E501
+            response_type='MindResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -172,7 +172,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MindResponseListObject
+        :return: MindResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -199,7 +199,7 @@ class OperationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MindResponseListObject, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(MindResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -264,7 +264,7 @@ class OperationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MindResponseListObject',  # noqa: E501
+            response_type='MindResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -37,6 +37,7 @@ class TextNode(object):
         'empty': 'bool',
         'array': 'bool',
         'null': 'bool',
+        'short': 'bool',
         'value_node': 'bool',
         'container_node': 'bool',
         'missing_node': 'bool',
@@ -53,8 +54,7 @@ class TextNode(object):
         'big_integer': 'bool',
         'textual': 'bool',
         'boolean': 'bool',
-        'binary': 'bool',
-        'short': 'bool'
+        'binary': 'bool'
     }
 
     attribute_map = {
@@ -62,6 +62,7 @@ class TextNode(object):
         'empty': 'empty',
         'array': 'array',
         'null': 'null',
+        'short': 'short',
         'value_node': 'valueNode',
         'container_node': 'containerNode',
         'missing_node': 'missingNode',
@@ -78,11 +79,10 @@ class TextNode(object):
         'big_integer': 'bigInteger',
         'textual': 'textual',
         'boolean': 'boolean',
-        'binary': 'binary',
-        'short': 'short'
+        'binary': 'binary'
     }
 
-    def __init__(self, node_type=None, empty=None, array=None, null=None, value_node=None, container_node=None, missing_node=None, object=None, pojo=None, number=None, integral_number=None, floating_point_number=None, int=None, long=None, float=None, double=None, big_decimal=None, big_integer=None, textual=None, boolean=None, binary=None, short=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, node_type=None, empty=None, array=None, null=None, short=None, value_node=None, container_node=None, missing_node=None, object=None, pojo=None, number=None, integral_number=None, floating_point_number=None, int=None, long=None, float=None, double=None, big_decimal=None, big_integer=None, textual=None, boolean=None, binary=None, local_vars_configuration=None):  # noqa: E501
         """TextNode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +92,7 @@ class TextNode(object):
         self._empty = None
         self._array = None
         self._null = None
+        self._short = None
         self._value_node = None
         self._container_node = None
         self._missing_node = None
@@ -109,7 +110,6 @@ class TextNode(object):
         self._textual = None
         self._boolean = None
         self._binary = None
-        self._short = None
         self.discriminator = None
 
         if node_type is not None:
@@ -120,6 +120,8 @@ class TextNode(object):
             self.array = array
         if null is not None:
             self.null = null
+        if short is not None:
+            self.short = short
         if value_node is not None:
             self.value_node = value_node
         if container_node is not None:
@@ -154,8 +156,6 @@ class TextNode(object):
             self.boolean = boolean
         if binary is not None:
             self.binary = binary
-        if short is not None:
-            self.short = short
 
     @property
     def node_type(self):
@@ -246,6 +246,27 @@ class TextNode(object):
         """
 
         self._null = null
+
+    @property
+    def short(self):
+        """Gets the short of this TextNode.  # noqa: E501
+
+
+        :return: The short of this TextNode.  # noqa: E501
+        :rtype: bool
+        """
+        return self._short
+
+    @short.setter
+    def short(self, short):
+        """Sets the short of this TextNode.
+
+
+        :param short: The short of this TextNode.  # noqa: E501
+        :type: bool
+        """
+
+        self._short = short
 
     @property
     def value_node(self):
@@ -603,27 +624,6 @@ class TextNode(object):
         """
 
         self._binary = binary
-
-    @property
-    def short(self):
-        """Gets the short of this TextNode.  # noqa: E501
-
-
-        :return: The short of this TextNode.  # noqa: E501
-        :rtype: bool
-        """
-        return self._short
-
-    @short.setter
-    def short(self, short):
-        """Sets the short of this TextNode.
-
-
-        :param short: The short of this TextNode.  # noqa: E501
-        :type: bool
-        """
-
-        self._short = short
 
     def to_dict(self):
         """Returns the model properties as a dict"""

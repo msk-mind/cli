@@ -14,7 +14,7 @@
 from __future__ import absolute_import
 
 # import models into model package
-from openapi_client.models.mind_response_list_map_string_object import MindResponseListMapStringObject
-from openapi_client.models.mind_response_list_object import MindResponseListObject
-from openapi_client.models.mind_response_string import MindResponseString
+from openapi_client.models.mind_error_response import MindErrorResponse
+from openapi_client.models.mind_response import MindResponse
+from openapi_client.models.mind_success_response import MindSuccessResponse
 from openapi_client.models.text_node import TextNode
