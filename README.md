@@ -46,6 +46,9 @@ Commands:
   download-files     download operational metadata.
   download-metadata  download domain metadata.
   files              query operational metadata.
+  list-columns       show available columns given a table.
+  list-databases     show available databases.
+  list-tables        show available tables given a database.
   metadata           query domain metadata.
 ```
 
@@ -67,7 +70,9 @@ Usage: msk-mind download-metadata [OPTIONS] QUERY
 
   download domain metadata.
 
-  QUERY - a SQL select statement.
+  QUERY - SQL select statement.
+
+  :returns: link to download the data bundle.
 
 Options:
   --help  Show this message and exit.
@@ -81,6 +86,8 @@ Usage: msk-mind.py files [OPTIONS] QUERY
 
   QUERY - Atlas DSL query.
 
+  :returns: operational metadata.
+
 Options:
   --help  Show this message and exit.
 ```
@@ -92,6 +99,50 @@ Usage: msk-mind.py download-files [OPTIONS] QUERY
   download operational metadata.
 
   QUERY - Atlas DSL query.
+
+  :returns: link to download the data bundle.
+
+Options:
+  --help  Show this message and exit.
+```
+
+```
+msk-mind list-databases --help
+Usage: msk-mind.py list-databases [OPTIONS]
+
+  show available databases.
+
+  :returns: list of available databases.
+
+Options:
+  --help  Show this message and exit.
+```
+
+```
+msk-mind list-tables --help
+Usage: msk-mind.py list-tables [OPTIONS] DB
+
+  show available tables given a database.
+
+  DB - database name.
+
+  :returns: list of table names and comments
+
+Options:
+  --help  Show this message and exit.
+```
+
+```
+msk-mind list-columns --help
+Usage: msk-mind.py list-columns [OPTIONS] DB TABLE
+
+  show available columns given database and table.
+
+  DB - database name.
+
+  TABLE - table name in the database.
+
+  :returns: list of column names and comments
 
 Options:
   --help  Show this message and exit.
@@ -157,4 +208,34 @@ $ msk-mind download-files "hive_table where name like '*genomic*' and createTime
 
 {'payload': 'http://<vm_ip>:50070/data/tmp/1588078078927.gz',
  'status': 'OK'}
+```
+
+5. List available databases.
+```
+$ msk-mind list-databases
+
+clinical
+genomic
+```
+
+6. List available tables.
+```
+$ msk-mind list-tables clinical
+
+medication - None
+patient - (Patient level) de-identified patient IDs, demographics info, survival status
+diagnosis - None
+```
+
+7. List available columns.
+```
+$ msk-mind list-columns clinical diagnosis
+
+diagnosis_clinical_stage_group::string - None
+diagnosis_pathology_stage_group::string - None
+age_at_diagnosis::int - None
+project_id::string - None
+dmp_patient_id::string - None
+icdo_histology_code::string - None
+icdo_site_code::string - None
 ```
