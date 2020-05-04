@@ -222,20 +222,24 @@ genomic
 ```
 $ msk-mind list-tables clinical
 
-medication - None
-patient - (Patient level) de-identified patient IDs, demographics info, survival status
-diagnosis - None
+| name       | comment                                                                       |
+|------------+-------------------------------------------------------------------------------|
+| medication | None                                                                          |
+| patient    | (Patient level) de-identified patient IDs, demographics info, survival status |
+| diagnosis  | None                                                                          |
 ```
 
 7. List available columns.
 ```
-$ msk-mind list-columns clinical diagnosis
+$ msk-mind list-columns clinical patient
 
-diagnosis_clinical_stage_group::string - None
-diagnosis_pathology_stage_group::string - None
-age_at_diagnosis::int - None
-project_id::string - None
-dmp_patient_id::string - None
-icdo_histology_code::string - None
-icdo_site_code::string - None
+| name                         | type   | comment   |
+|------------------------------+--------+-----------|
+| dmp_patient_id               | string | None      |
+| patient_last_known_alive_age | int    | None      |
+| project_id                   | string | None      |
+| gender                       | string | None      |
+| race                         | string | None      |
+| patient_id                   | string | None      |
+| vital_status                 | string | None      |
 ```

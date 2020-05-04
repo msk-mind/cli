@@ -99,9 +99,9 @@ def list_tables(ctx, db):
                      "' and __state='ACTIVE' select name, comment"])
     res = ctx.obj["op"].get_files(query)
     if res.status == 'OK':
-        pprint_ls(["".join([x['name'],
-                            " - ",
-                            str(x['comment'])]) for x in res.payload])
+        data = [[x['name'], str(x['comment'])] for x in res.payload]
+        header = ['name', 'comment']
+        pprint_table(data, header)
     else:
         print_mind_response(res)
 
@@ -126,11 +126,9 @@ def list_columns(ctx, db, table):
                      "' and __state='ACTIVE' select name, type, comment"])
     res = ctx.obj["op"].get_files(query)
     if res.status == 'OK':
-        pprint_ls(["".join([x['name'],
-                           "::",
-                           x['type'],
-                           " - ",
-                           str(x['comment'])]) for x in res.payload])
+        data = [[x['name'], x['type'], str(x['comment'])] for x in res.payload]
+        header = ['name', 'type', 'comment']
+        pprint_table(data, header)
     else:
         print_mind_response(res)
 
