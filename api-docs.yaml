@@ -151,6 +151,10 @@ components:
           type: boolean
         binary:
           type: boolean
+    # Generic MindResponse that is a response type to all methods.
+    # MindSuccessResponse and MindErrorResponse was also manually added as the client generator
+    # does not generate fields for MindErrorResponse, a child of MindResponse in Java core project.
+    # Please see https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/
     MindResponse:
       type: object
       properties:
