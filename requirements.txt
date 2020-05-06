@@ -5,4 +5,5 @@ six >= 1.10
 pyinstaller >= 3.6
 python_dateutil >= 2.5.3
 setuptools >= 21.0.0
+tabulate >= 0.8.7
 urllib3 >= 1.15.1
