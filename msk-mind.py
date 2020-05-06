@@ -100,7 +100,7 @@ def list_tables(ctx, db):
     res = ctx.obj["op"].get_files(query)
     if res.status == 'OK':
         data = [[x['name'], str(x['comment'])] for x in res.payload]
-        header = ['name', 'comment']
+        header = ['name', 'description']
         pprint_table(data, header)
     else:
         print_mind_response(res)
@@ -127,7 +127,7 @@ def list_columns(ctx, db, table):
     res = ctx.obj["op"].get_files(query)
     if res.status == 'OK':
         data = [[x['name'], x['type'], str(x['comment'])] for x in res.payload]
-        header = ['name', 'type', 'comment']
+        header = ['name', 'type', 'description']
         pprint_table(data, header)
     else:
         print_mind_response(res)

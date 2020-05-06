@@ -222,7 +222,7 @@ genomic
 ```
 $ msk-mind list-tables clinical
 
-| name       | comment                                                                       |
+| name       | description                                                                       |
 |------------+-------------------------------------------------------------------------------|
 | medication | None                                                                          |
 | patient    | (Patient level) de-identified patient IDs, demographics info, survival status |
@@ -233,13 +233,13 @@ $ msk-mind list-tables clinical
 ```
 $ msk-mind list-columns clinical patient
 
-| name                         | type   | comment   |
-|------------------------------+--------+-----------|
-| dmp_patient_id               | string | None      |
-| patient_last_known_alive_age | int    | None      |
-| project_id                   | string | None      |
-| gender                       | string | None      |
-| race                         | string | None      |
-| patient_id                   | string | None      |
-| vital_status                 | string | None      |
+| name                         | type   | description   |
+|------------------------------+--------+---------------|
+| dmp_patient_id               | string | None          |
+| patient_last_known_alive_age | int    | None          |
+| project_id                   | string | None          |
+| gender                       | string | None          |
+| race                         | string | None          |
+| patient_id                   | string | None          |
+| vital_status                 | string | None          |
 ```
