@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **empty** | **bool** |  | [optional] 
 **array** | **bool** |  | [optional] 
 **null** | **bool** |  | [optional] 
-**short** | **bool** |  | [optional] 
 **value_node** | **bool** |  | [optional] 
 **container_node** | **bool** |  | [optional] 
 **missing_node** | **bool** |  | [optional] 
@@ -25,6 +24,7 @@ Name | Type | Description | Notes
 **textual** | **bool** |  | [optional] 
 **boolean** | **bool** |  | [optional] 
 **binary** | **bool** |  | [optional] 
+**short** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
