@@ -74,18 +74,18 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BusinessApi* | [**get_metadata**](docs/BusinessApi.md#get_metadata) | **POST** /metadata | 
-*BusinessApi* | [**get_metadata_url**](docs/BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
-*OperationApi* | [**get_file_url**](docs/OperationApi.md#get_file_url) | **POST** /files/url | 
-*OperationApi* | [**get_files**](docs/OperationApi.md#get_files) | **POST** /files | 
+*BusinessApi* | [**get_metadata**](docs_openapi/BusinessApi.md#get_metadata) | **POST** /metadata | 
+*BusinessApi* | [**get_metadata_url**](docs_openapi/BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
+*OperationApi* | [**get_file_url**](docs_openapi/OperationApi.md#get_file_url) | **POST** /files/url | 
+*OperationApi* | [**get_files**](docs_openapi/OperationApi.md#get_files) | **POST** /files | 
 
 
 ## Documentation For Models
 
- - [MindErrorResponse](docs/MindErrorResponse.md)
- - [MindResponse](docs/MindResponse.md)
- - [MindSuccessResponse](docs/MindSuccessResponse.md)
- - [TextNode](docs/TextNode.md)
+ - [MindErrorResponse](docs_openapi/MindErrorResponse.md)
+ - [MindResponse](docs_openapi/MindResponse.md)
+ - [MindSuccessResponse](docs_openapi/MindSuccessResponse.md)
+ - [TextNode](docs_openapi/TextNode.md)
 
 
 ## Documentation For Authorization
