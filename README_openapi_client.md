@@ -75,19 +75,19 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*IntrospectApi* | [**get_columns**](docs/IntrospectApi.md#get_columns) | **POST** /list-columns | 
-*IntrospectApi* | [**get_databases**](docs/IntrospectApi.md#get_databases) | **POST** /list-databases | 
-*IntrospectApi* | [**get_tables**](docs/IntrospectApi.md#get_tables) | **POST** /list-tables | 
-*QueryApi* | [**download**](docs/QueryApi.md#download) | **POST** /download | 
-*QueryApi* | [**query**](docs/QueryApi.md#query) | **POST** /query | 
+*IntrospectApi* | [**get_columns**](docs_openapi/IntrospectApi.md#get_columns) | **POST** /list-columns | 
+*IntrospectApi* | [**get_databases**](docs_openapi/IntrospectApi.md#get_databases) | **POST** /list-databases | 
+*IntrospectApi* | [**get_tables**](docs_openapi/IntrospectApi.md#get_tables) | **POST** /list-tables | 
+*QueryApi* | [**download**](docs_openapi/QueryApi.md#download) | **POST** /download | 
+*QueryApi* | [**query**](docs_openapi/QueryApi.md#query) | **POST** /query | 
 
 
 ## Documentation For Models
 
- - [MindErrorResponse](docs/MindErrorResponse.md)
- - [MindResponse](docs/MindResponse.md)
- - [MindSuccessResponse](docs/MindSuccessResponse.md)
- - [TextNode](docs/TextNode.md)
+ - [MindErrorResponse](docs_openapi/MindErrorResponse.md)
+ - [MindResponse](docs_openapi/MindResponse.md)
+ - [MindSuccessResponse](docs_openapi/MindSuccessResponse.md)
+ - [TextNode](docs_openapi/TextNode.md)
 
 
 ## Documentation For Authorization
