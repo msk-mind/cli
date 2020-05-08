@@ -20,4 +20,4 @@ help:
 
 github:
 	@make html
-	@cp -a _build/html/. ../
+	@cp -a $(BUILDDIR)/html/. .
