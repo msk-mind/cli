@@ -30,9 +30,3 @@ msk-mind.spec
 
 ## sphinx doc ##
 docs/_build/
-.buildinfo
-_sources/
-_static/
-*.html
-*.js
-objects.inv
