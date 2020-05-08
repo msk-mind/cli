@@ -7,19 +7,75 @@ servers:
 - url: http://localhost:8080
   description: Generated server url
 tags:
-- name: Operation
-  description: interface to operational data
-- name: Business
-  description: interface to business data
+- name: Query
+  description: interface to query data
+- name: Introspect
+  description: interface to introspect/list data
 paths:
-  /metadata:
+  /list-databases:
     post:
       tags:
-      - Business
-      description: Get metadata that match the query
-      operationId: getMetadata
+      - Introspect
+      description: List databases
+      operationId: getDatabases
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /list-columns:
+    post:
+      tags:
+      - Introspect
+      description: List columns
+      operationId: getColumns
+      parameters:
+      - name: db
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: table
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /list-tables:
+    post:
+      tags:
+      - Introspect
+      description: List tables
+      operationId: getTables
+      parameters:
+      - name: db
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /query:
+    post:
+      tags:
+      - Query
+      description: Get data that match the query
+      operationId: query
       requestBody:
-        description: SQL string to query business data
+        description: SQL or DSL string
         content:
           application/json:
             schema:
@@ -32,54 +88,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/MindResponse'
-  /metadata/url:
+  /download:
     post:
       tags:
-      - Business
-      description: Get a URL to the metadata bundle that match the query
-      operationId: getMetadataUrl
+      - Query
+      description: Download data that match the query
+      operationId: download
       requestBody:
-        description: SQL string to query business data
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TextNode'
-        required: true
-      responses:
-        "200":
-          description: default response
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/MindResponse'
-  /files:
-    post:
-      tags:
-      - Operation
-      description: Get operational metadata
-      operationId: getFiles
-      requestBody:
-        description: Filter criteria for operational data
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TextNode'
-        required: true
-      responses:
-        "200":
-          description: default response
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/MindResponse'
-  /files/url:
-    post:
-      tags:
-      - Operation
-      description: Get a URL to the zipped data that match the criteria
-      operationId: getFileUrl
-      requestBody:
-        description: Filter criteria for operational data
+        description: SQL or DSL string
         content:
           application/json:
             schema:
@@ -115,8 +131,6 @@ components:
           type: boolean
         null:
           type: boolean
-        short:
-          type: boolean
         valueNode:
           type: boolean
         containerNode:
@@ -150,6 +164,8 @@ components:
         boolean:
           type: boolean
         binary:
+          type: boolean
+        short:
           type: boolean
     # Generic MindResponse that is a response type to all methods.
     # MindSuccessResponse and MindErrorResponse was also manually added as the client generator

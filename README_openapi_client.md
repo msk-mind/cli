@@ -57,14 +57,15 @@ configuration.host = "http://localhost:8080"
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BusinessApi(api_client)
-    text_node = openapi_client.TextNode() # TextNode | SQL string to query business data
+    api_instance = openapi_client.IntrospectApi(api_client)
+    db = 'db_example' # str | 
+table = 'table_example' # str | 
 
     try:
-        api_response = api_instance.get_metadata(text_node)
+        api_response = api_instance.get_columns(db, table)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BusinessApi->get_metadata: %s\n" % e)
+        print("Exception when calling IntrospectApi->get_columns: %s\n" % e)
     
 ```
 
@@ -74,10 +75,11 @@ All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BusinessApi* | [**get_metadata**](docs/BusinessApi.md#get_metadata) | **POST** /metadata | 
-*BusinessApi* | [**get_metadata_url**](docs/BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
-*OperationApi* | [**get_file_url**](docs/OperationApi.md#get_file_url) | **POST** /files/url | 
-*OperationApi* | [**get_files**](docs/OperationApi.md#get_files) | **POST** /files | 
+*IntrospectApi* | [**get_columns**](docs/IntrospectApi.md#get_columns) | **POST** /list-columns | 
+*IntrospectApi* | [**get_databases**](docs/IntrospectApi.md#get_databases) | **POST** /list-databases | 
+*IntrospectApi* | [**get_tables**](docs/IntrospectApi.md#get_tables) | **POST** /list-tables | 
+*QueryApi* | [**download**](docs/QueryApi.md#download) | **POST** /download | 
+*QueryApi* | [**query**](docs/QueryApi.md#query) | **POST** /query | 
 
 
 ## Documentation For Models

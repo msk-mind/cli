@@ -17,8 +17,8 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from openapi_client.api.business_api import BusinessApi
-from openapi_client.api.operation_api import OperationApi
+from openapi_client.api.introspect_api import IntrospectApi
+from openapi_client.api.query_api import QueryApi
 
 # import ApiClient
 from openapi_client.api_client import ApiClient
