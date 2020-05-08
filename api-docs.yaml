@@ -1,0 +1,206 @@
+openapi: 3.0.1
+info:
+  title: MSK-MIND REST API
+  description: MSK-MIND REST API
+  version: v0.0.1
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+tags:
+- name: Query
+  description: interface to query data
+- name: Introspect
+  description: interface to introspect/list data
+paths:
+  /list-databases:
+    post:
+      tags:
+      - Introspect
+      description: List databases
+      operationId: getDatabases
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /list-columns:
+    post:
+      tags:
+      - Introspect
+      description: List columns
+      operationId: getColumns
+      parameters:
+      - name: db
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: table
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /list-tables:
+    post:
+      tags:
+      - Introspect
+      description: List tables
+      operationId: getTables
+      parameters:
+      - name: db
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /query:
+    post:
+      tags:
+      - Query
+      description: Get data that match the query
+      operationId: query
+      requestBody:
+        description: SQL or DSL string
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+  /download:
+    post:
+      tags:
+      - Query
+      description: Download data that match the query
+      operationId: download
+      requestBody:
+        description: SQL or DSL string
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextNode'
+        required: true
+      responses:
+        "200":
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MindResponse'
+components:
+  schemas:
+    TextNode:
+      type: object
+      properties:
+        nodeType:
+          type: string
+          enum:
+          - ARRAY
+          - BINARY
+          - BOOLEAN
+          - MISSING
+          - "NULL"
+          - NUMBER
+          - OBJECT
+          - POJO
+          - STRING
+        empty:
+          type: boolean
+        array:
+          type: boolean
+        null:
+          type: boolean
+        valueNode:
+          type: boolean
+        containerNode:
+          type: boolean
+        missingNode:
+          type: boolean
+        object:
+          type: boolean
+        pojo:
+          type: boolean
+        number:
+          type: boolean
+        integralNumber:
+          type: boolean
+        floatingPointNumber:
+          type: boolean
+        int:
+          type: boolean
+        long:
+          type: boolean
+        float:
+          type: boolean
+        double:
+          type: boolean
+        bigDecimal:
+          type: boolean
+        bigInteger:
+          type: boolean
+        textual:
+          type: boolean
+        boolean:
+          type: boolean
+        binary:
+          type: boolean
+        short:
+          type: boolean
+    # Generic MindResponse that is a response type to all methods.
+    # MindSuccessResponse and MindErrorResponse was also manually added as the client generator
+    # does not generate fields for MindErrorResponse, a child of MindResponse in Java core project.
+    # Please see https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/
+    MindResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+          - ERROR
+        payload:
+          type: object
+      oneOf:
+        - $ref: '#/components/schemas/MindSuccessResponse'
+        - $ref: '#/components/schemas/MindErrorResponse'
+    MindSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+        payload:
+          type: object
+    MindErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - ERROR
+        summary:
+          type: string
+        description:
+          type: string
