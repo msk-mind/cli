@@ -15,60 +15,34 @@ def cli(ctx, host):
     # setup api client
     config = Configuration(host=host)
     client = ApiClient(configuration=config)
-    ctx.obj["business"] = openapi_client.BusinessApi(client)
-    ctx.obj["op"] = openapi_client.OperationApi(client)
+    ctx.obj["query"] = openapi_client.QueryApi(client)
+    ctx.obj["introspect"] = openapi_client.IntrospectApi(client)
 
 
 @cli.command()
 @click.pass_context
 @click.argument("query")
-def metadata(ctx, query):
-    """query domain metadata.
+def query(ctx, query):
+    """query data.
 
-    QUERY - SQL select statement.
+    QUERY - SQL select statement or Atlas DSL string.
 
     :returns: domain metadata.
     """
-    print_mind_response(ctx.obj["business"].get_metadata(query))
+    print_mind_response(ctx.obj["query"].query(query))
 
 
 @cli.command()
 @click.pass_context
 @click.argument("query")
-def download_metadata(ctx, query):
-    """download domain metadata.
+def download(ctx, query):
+    """download data.
 
-    QUERY - SQL select statement.
+    QUERY - SQL select statement or Atlas DSL string.
 
     :returns: link to download the data bundle.
     """
-    print_mind_response(ctx.obj["business"].get_metadata_url(query))
-
-
-@cli.command()
-@click.pass_context
-@click.argument("query")
-def files(ctx, query):
-    """query operational metadata.
-
-    QUERY - Atlas DSL query.
-
-    :returns: operational metadata.
-    """
-    print_mind_response(ctx.obj["op"].get_files(query))
-
-
-@cli.command()
-@click.pass_context
-@click.argument("query")
-def download_files(ctx, query):
-    """download operational metadata.
-
-    QUERY - Atlas DSL query.
-
-    :returns: link to download the data bundle.
-    """
-    print_mind_response(ctx.obj["op"].get_file_url(query))
+    print_mind_response(ctx.obj["query"].download(query))
 
 
 @cli.command()
@@ -78,7 +52,7 @@ def list_databases(ctx):
 
     :returns: list of available databases.
     """
-    res = ctx.obj["op"].get_files("from hive_db where name != 'default' and __state='ACTIVE' select name")
+    res = ctx.obj["introspect"].get_databases()
     if res.status == 'OK':
         pprint_ls([x['name'] for x in res.payload])
     else:
@@ -94,10 +68,7 @@ def list_tables(ctx, db):
 
     :returns: list of table names and comments
     """
-    query = "".join(["from hive_table where db.name = '",
-                     db,
-                     "' and __state='ACTIVE' select name, comment"])
-    res = ctx.obj["op"].get_files(query)
+    res = ctx.obj["introspect"].get_tables(db)
     if res.status == 'OK':
         data = [[x['name'], str(x['comment'])] for x in res.payload]
         header = ['name', 'description']
@@ -119,12 +90,7 @@ def list_columns(ctx, db, table):
 
     :returns: list of column names and comments
     """
-    query = "".join(["from hive_column where table.name = '",
-                     table,
-                     "' and table.db.name = '",
-                     db,
-                     "' and __state='ACTIVE' select name, type, comment"])
-    res = ctx.obj["op"].get_files(query)
+    res = ctx.obj["introspect"].get_columns(db, table)
     if res.status == 'OK':
         data = [[x['name'], x['type'], str(x['comment'])] for x in res.payload]
         header = ['name', 'type', 'description']

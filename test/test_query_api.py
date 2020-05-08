@@ -15,27 +15,27 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.api.operation_api import OperationApi  # noqa: E501
+from openapi_client.api.query_api import QueryApi  # noqa: E501
 from openapi_client.rest import ApiException
 
 
-class TestOperationApi(unittest.TestCase):
-    """OperationApi unit test stubs"""
+class TestQueryApi(unittest.TestCase):
+    """QueryApi unit test stubs"""
 
     def setUp(self):
-        self.api = openapi_client.api.operation_api.OperationApi()  # noqa: E501
+        self.api = openapi_client.api.query_api.QueryApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_get_file_url(self):
-        """Test case for get_file_url
+    def test_download(self):
+        """Test case for download
 
         """
         pass
 
-    def test_get_files(self):
-        """Test case for get_files
+    def test_query(self):
+        """Test case for query
 
         """
         pass

@@ -1,19 +1,19 @@
-# openapi_client.BusinessApi
+# openapi_client.QueryApi
 
 All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_metadata**](BusinessApi.md#get_metadata) | **POST** /metadata | 
-[**get_metadata_url**](BusinessApi.md#get_metadata_url) | **POST** /metadata/url | 
+[**download**](QueryApi.md#download) | **POST** /download | 
+[**query**](QueryApi.md#query) | **POST** /query | 
 
 
-# **get_metadata**
-> MindResponse get_metadata(text_node)
+# **download**
+> MindResponse download(text_node)
 
 
 
-Get metadata that match the query
+Download data that match the query
 
 ### Example
 
@@ -27,21 +27,21 @@ from pprint import pprint
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BusinessApi(api_client)
-    text_node = openapi_client.TextNode() # TextNode | SQL string to query business data
+    api_instance = openapi_client.QueryApi(api_client)
+    text_node = openapi_client.TextNode() # TextNode | SQL or DSL string
 
     try:
-        api_response = api_instance.get_metadata(text_node)
+        api_response = api_instance.download(text_node)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BusinessApi->get_metadata: %s\n" % e)
+        print("Exception when calling QueryApi->download: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **text_node** | [**TextNode**](TextNode.md)| SQL string to query business data | 
+ **text_node** | [**TextNode**](TextNode.md)| SQL or DSL string | 
 
 ### Return type
 
@@ -63,12 +63,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_metadata_url**
-> MindResponse get_metadata_url(text_node)
+# **query**
+> MindResponse query(text_node)
 
 
 
-Get a URL to the metadata bundle that match the query
+Get data that match the query
 
 ### Example
 
@@ -82,21 +82,21 @@ from pprint import pprint
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BusinessApi(api_client)
-    text_node = openapi_client.TextNode() # TextNode | SQL string to query business data
+    api_instance = openapi_client.QueryApi(api_client)
+    text_node = openapi_client.TextNode() # TextNode | SQL or DSL string
 
     try:
-        api_response = api_instance.get_metadata_url(text_node)
+        api_response = api_instance.query(text_node)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BusinessApi->get_metadata_url: %s\n" % e)
+        print("Exception when calling QueryApi->query: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **text_node** | [**TextNode**](TextNode.md)| SQL string to query business data | 
+ **text_node** | [**TextNode**](TextNode.md)| SQL or DSL string | 
 
 ### Return type
 

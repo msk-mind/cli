@@ -43,67 +43,39 @@ Options:
   --help       Show this message and exit.
 
 Commands:
-  download-files     download operational metadata.
-  download-metadata  download domain metadata.
-  files              query operational metadata.
-  list-columns       show available columns given a table.
-  list-databases     show available databases.
-  list-tables        show available tables given a database.
-  metadata           query domain metadata.
+  download        download data.
+  list-columns    show available columns given database and table.
+  list-databases  show available databases.
+  list-tables     show available tables given a database.
+  query           query data.
 ```
 
 ```
-$ msk-mind metadata --help
-Usage: msk-mind metadata [OPTIONS] QUERY
+$ msk-mind query --help
+Usage: msk-mind query [OPTIONS] QUERY
 
-  query domain metadata.
+ query data.
 
-  QUERY - a SQL select statement.
+ QUERY - SQL select statement or Atlas DSL string.
+
+ :returns: domain metadata.
 
 Options:
-  --help  Show this message and exit.
+ --help  Show this message and exit.
 ```
 
 ```
-$ msk-mind download-metadata --help
-Usage: msk-mind download-metadata [OPTIONS] QUERY
+$ msk-mind download --help
+Usage: msk-mind download [OPTIONS] QUERY
 
-  download domain metadata.
+ download data.
 
-  QUERY - SQL select statement.
+ QUERY - SQL select statement or Atlas DSL string.
 
-  :returns: link to download the data bundle.
+ :returns: link to download the data bundle.
 
 Options:
-  --help  Show this message and exit.
-```
-
-```
-$ msk-mind files --help
-Usage: msk-mind.py files [OPTIONS] QUERY
-
-  query operational metadata.
-
-  QUERY - Atlas DSL query.
-
-  :returns: operational metadata.
-
-Options:
-  --help  Show this message and exit.
-```
-
-```
-$ msk-mind download-files --help
-Usage: msk-mind.py download-files [OPTIONS] QUERY
-
-  download operational metadata.
-
-  QUERY - Atlas DSL query.
-
-  :returns: link to download the data bundle.
-
-Options:
-  --help  Show this message and exit.
+ --help  Show this message and exit.
 ```
 
 ```
@@ -152,7 +124,7 @@ Options:
 
 1. Get patient data where patients have clinical stage '3C'
 ```
-$ msk-mind metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
+$ msk-mind query "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 
 {'payload': [{'patient.age_at_diagnosis': 24525,
               'patient.diagnosis_clinical_stage_group': '99',
@@ -172,7 +144,7 @@ $ msk-mind metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group 
 
 2. Get url to patient data bundle
 ```
-$ msk-mind download-metadata "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
+$ msk-mind download "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 
 {'payload': 'http://<vm_ip>:50070/data/tmp/1587571607403.gz',
  'status': 'OK'}
@@ -180,7 +152,7 @@ $ msk-mind download-metadata "SELECT * FROM patient WHERE diagnosis_clinical_sta
 
 3. Get operational metadata for files
 ```
-$ msk-mind files "from hive_table where name like '*clinical*' select name, owner"
+$ msk-mind query "from hive_table where name like '*clinical*' select name, owner"
 
 {'payload': [{'name': 'clinical_patient', 'owner': 'raj_ops'},
              {'name': 'clinical_diagnosis', 'owner': 'raj_ops'}],
@@ -188,7 +160,7 @@ $ msk-mind files "from hive_table where name like '*clinical*' select name, owne
 ```
 
 ```
-$ msk-mind files "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
+$ msk-mind query "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
 
 {'payload': [{'name': '/user/hive/genomic_cna',
               'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna',
@@ -204,7 +176,7 @@ $ msk-mind files "from hdfs_path where name like '*genomic*' select name, qualif
 
 4. Get url to the data bundle
 ```
-$ msk-mind download-files "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
+$ msk-mind download "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
 
 {'payload': 'http://<vm_ip>:50070/data/tmp/1588078078927.gz',
  'status': 'OK'}
