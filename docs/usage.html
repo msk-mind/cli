@@ -156,7 +156,7 @@ The notebooks can be found on the hdp sandbox at <a class="reference external" h
 <ul class="simple">
 <li><p>Get patient data where patients have clinical stage ‘3C’</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind query <span class="s2">&quot;SELECT * FROM patient WHERE diagnosis_clinical_stage_group = &#39;3C&#39;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind query <span class="s2">&quot;SELECT * FROM patient WHERE diagnosis_clinical_stage_group = &#39;3C&#39;&quot;</span>
 
 <span class="o">{</span><span class="s1">&#39;payload&#39;</span>: <span class="o">[{</span><span class="s1">&#39;patient.age_at_diagnosis&#39;</span>: <span class="m">24525</span>,
           <span class="s1">&#39;patient.diagnosis_clinical_stage_group&#39;</span>: <span class="s1">&#39;99&#39;</span>,
@@ -177,7 +177,7 @@ The notebooks can be found on the hdp sandbox at <a class="reference external" h
 <ul class="simple">
 <li><p>Get url to patient data bundle</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind download <span class="s2">&quot;SELECT * FROM patient WHERE diagnosis_clinical_stage_group = &#39;3C&#39;&quot;</span> --download
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind download <span class="s2">&quot;SELECT * FROM patient WHERE diagnosis_clinical_stage_group = &#39;3C&#39;&quot;</span> --download
 
 <span class="o">{</span><span class="s1">&#39;payload&#39;</span>: <span class="s1">&#39;http://&lt;vm_ip&gt;:50070/data/tmp/1587571607403.gz&#39;</span>,
  <span class="s1">&#39;status&#39;</span>: <span class="s1">&#39;OK&#39;</span><span class="o">}</span>
@@ -186,14 +186,14 @@ The notebooks can be found on the hdp sandbox at <a class="reference external" h
 <ul class="simple">
 <li><p>Get operational metadata for files</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind query <span class="s2">&quot;from hive_table where name like &#39;*clinical*&#39; select name, owner&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind query <span class="s2">&quot;from hive_table where name like &#39;*clinical*&#39; select name, owner&quot;</span>
 
 <span class="o">{</span><span class="s1">&#39;payload&#39;</span>: <span class="o">[{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;clinical_patient&#39;</span>, <span class="s1">&#39;owner&#39;</span>: <span class="s1">&#39;raj_ops&#39;</span><span class="o">}</span>,
              <span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;clinical_diagnosis&#39;</span>, <span class="s1">&#39;owner&#39;</span>: <span class="s1">&#39;raj_ops&#39;</span><span class="o">}]</span>,
 <span class="s1">&#39;status&#39;</span>: <span class="s1">&#39;OK&#39;</span><span class="o">}</span>
 
 
-$ msk-mind query <span class="s2">&quot;from hdfs_path where name like &#39;*genomic*&#39; select name, qualifiedName, path&quot;</span>
+$ mind query <span class="s2">&quot;from hdfs_path where name like &#39;*genomic*&#39; select name, qualifiedName, path&quot;</span>
 
 <span class="o">{</span><span class="s1">&#39;payload&#39;</span>: <span class="o">[{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;/user/hive/genomic_cna&#39;</span>,
           <span class="s1">&#39;path&#39;</span>: <span class="s1">&#39;hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna&#39;</span>,
@@ -210,7 +210,7 @@ $ msk-mind query <span class="s2">&quot;from hdfs_path where name like &#39;*gen
 <ul class="simple">
 <li><p>Get url to the data bundle</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind download <span class="s2">&quot;hive_table where name like &#39;*genomic*&#39; and createTime &gt;= &#39;2020-04-20&#39;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind download <span class="s2">&quot;hive_table where name like &#39;*genomic*&#39; and createTime &gt;= &#39;2020-04-20&#39;&quot;</span>
 
 <span class="o">{</span><span class="s1">&#39;payload&#39;</span>: <span class="s1">&#39;http://&lt;vm_ip&gt;:50070/data/tmp/1588078078927.gz&#39;</span>,
 <span class="s1">&#39;status&#39;</span>: <span class="s1">&#39;OK&#39;</span><span class="o">}</span>
@@ -219,7 +219,7 @@ $ msk-mind query <span class="s2">&quot;from hdfs_path where name like &#39;*gen
 <ul class="simple">
 <li><p>List available databases.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind list-databases
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind list-databases
 
 clinical
 genomic
@@ -228,7 +228,7 @@ genomic
 <ul class="simple">
 <li><p>List available tables.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind list-tables clinical
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind list-tables clinical
 
 <span class="p">|</span> name       <span class="p">|</span> description                                                                   <span class="p">|</span>
 <span class="p">|</span>------------+-------------------------------------------------------------------------------<span class="p">|</span>
@@ -240,7 +240,7 @@ genomic
 <ul class="simple">
 <li><p>List available columns.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ msk-mind list-columns clinical patient
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mind list-columns clinical patient
 
 <span class="p">|</span> name                         <span class="p">|</span> <span class="nb">type</span>   <span class="p">|</span> description   <span class="p">|</span>
 <span class="p">|</span>------------------------------+--------+---------------<span class="p">|</span>

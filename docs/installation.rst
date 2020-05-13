@@ -25,7 +25,7 @@ Build from Source Code
 
 .. code-block:: bash
 
-    pyinstaller --onefile msk-mind.py
+    pyinstaller --onefile mind.py
 
 The executable will be at ``dist/msk-mind``.
 
