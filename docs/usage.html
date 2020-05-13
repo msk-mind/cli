@@ -1,55 +1,64 @@
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Usage &#8212; msk-mind cli 0.0.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Installation" href="installation.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="shortcut icon" type="image/png" href="_static/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    
+    
 
   </head><body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="responsive-menu"><a href="#sidebar-anchor" title="Navigation">&#9776;</a></li>
+        <li><a href="index.html">msk-mind cli 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <div class="section" id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="msk-mind">
-<h3>msk-mind<a class="headerlink" href="#msk-mind" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mind">
+<h3>mind<a class="headerlink" href="#mind" title="Permalink to this headline">¶</a></h3>
 <p>Welcome to MSK MIND!</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
 </pre></div>
 </div>
 <p class="rubric">Options</p>
 <dl class="std option">
-<dt id="cmdoption-msk-mind-host">
-<code class="sig-name descname">--host</code><code class="sig-prename descclassname"> &lt;host&gt;</code><a class="headerlink" href="#cmdoption-msk-mind-host" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-host">
+<code class="sig-name descname">--host</code><code class="sig-prename descclassname"> &lt;host&gt;</code><a class="headerlink" href="#cmdoption-mind-host" title="Permalink to this definition">¶</a></dt>
 <dd><p>[default: <a class="reference external" href="http://localhost:8080">http://localhost:8080</a>]</p>
 </dd></dl>
 
-<div class="section" id="msk-mind-download">
-<h4>download<a class="headerlink" href="#msk-mind-download" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mind-download">
+<h4>download<a class="headerlink" href="#mind-download" title="Permalink to this headline">¶</a></h4>
 <p>download data.</p>
 <p>QUERY - SQL select statement or Atlas DSL string.</p>
 <dl class="field-list simple">
@@ -57,19 +66,19 @@
 <dd class="field-odd"><p>link to download the data bundle.</p>
 </dd>
 </dl>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind download <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind download <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY
 </pre></div>
 </div>
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-msk-mind-download-arg-QUERY">
-<code class="sig-name descname">QUERY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-msk-mind-download-arg-QUERY" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-download-arg-QUERY">
+<code class="sig-name descname">QUERY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mind-download-arg-QUERY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
 </div>
-<div class="section" id="msk-mind-list-columns">
-<h4>list-columns<a class="headerlink" href="#msk-mind-list-columns" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mind-list-columns">
+<h4>list-columns<a class="headerlink" href="#mind-list-columns" title="Permalink to this headline">¶</a></h4>
 <p>show available columns given database and table.</p>
 <p>DB - database name.</p>
 <p>TABLE - table name in the database.</p>
@@ -78,37 +87,37 @@
 <dd class="field-odd"><p>list of column names and comments</p>
 </dd>
 </dl>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind list-columns <span class="o">[</span>OPTIONS<span class="o">]</span> DB TABLE
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind list-columns <span class="o">[</span>OPTIONS<span class="o">]</span> DB TABLE
 </pre></div>
 </div>
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-msk-mind-list-columns-arg-DB">
-<code class="sig-name descname">DB</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-msk-mind-list-columns-arg-DB" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-list-columns-arg-DB">
+<code class="sig-name descname">DB</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mind-list-columns-arg-DB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
 <dl class="std option">
-<dt id="cmdoption-msk-mind-list-columns-arg-TABLE">
-<code class="sig-name descname">TABLE</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-msk-mind-list-columns-arg-TABLE" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-list-columns-arg-TABLE">
+<code class="sig-name descname">TABLE</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mind-list-columns-arg-TABLE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
 </div>
-<div class="section" id="msk-mind-list-databases">
-<h4>list-databases<a class="headerlink" href="#msk-mind-list-databases" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mind-list-databases">
+<h4>list-databases<a class="headerlink" href="#mind-list-databases" title="Permalink to this headline">¶</a></h4>
 <p>show available databases.</p>
 <dl class="field-list simple">
 <dt class="field-odd">returns</dt>
 <dd class="field-odd"><p>list of available databases.</p>
 </dd>
 </dl>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind list-databases <span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind list-databases <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="msk-mind-list-tables">
-<h4>list-tables<a class="headerlink" href="#msk-mind-list-tables" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mind-list-tables">
+<h4>list-tables<a class="headerlink" href="#mind-list-tables" title="Permalink to this headline">¶</a></h4>
 <p>show available tables given a database.</p>
 <p>DB - database name.</p>
 <dl class="field-list simple">
@@ -116,19 +125,19 @@
 <dd class="field-odd"><p>list of table names and comments</p>
 </dd>
 </dl>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind list-tables <span class="o">[</span>OPTIONS<span class="o">]</span> DB
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind list-tables <span class="o">[</span>OPTIONS<span class="o">]</span> DB
 </pre></div>
 </div>
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-msk-mind-list-tables-arg-DB">
-<code class="sig-name descname">DB</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-msk-mind-list-tables-arg-DB" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-list-tables-arg-DB">
+<code class="sig-name descname">DB</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mind-list-tables-arg-DB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
 </div>
-<div class="section" id="msk-mind-query">
-<h4>query<a class="headerlink" href="#msk-mind-query" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mind-query">
+<h4>query<a class="headerlink" href="#mind-query" title="Permalink to this headline">¶</a></h4>
 <p>query data.</p>
 <p>QUERY - SQL select statement or Atlas DSL string.</p>
 <dl class="field-list simple">
@@ -136,13 +145,13 @@
 <dd class="field-odd"><p>domain metadata.</p>
 </dd>
 </dl>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>msk-mind query <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mind query <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY
 </pre></div>
 </div>
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-msk-mind-query-arg-QUERY">
-<code class="sig-name descname">QUERY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-msk-mind-query-arg-QUERY" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mind-query-arg-QUERY">
+<code class="sig-name descname">QUERY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mind-query-arg-QUERY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
@@ -258,40 +267,42 @@ genomic
 
 
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">msk-mind cli</a></h1>
+    <a id="sidebar-anchor"></a>
+    
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#commands">Commands</a><ul>
+<li><a class="reference internal" href="#mind">mind</a><ul>
+<li><a class="reference internal" href="#mind-download">download</a></li>
+<li><a class="reference internal" href="#mind-list-columns">list-columns</a></li>
+<li><a class="reference internal" href="#mind-list-databases">list-databases</a></li>
+<li><a class="reference internal" href="#mind-list-tables">list-tables</a></li>
+<li><a class="reference internal" href="#mind-query">query</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
-  </ul></li>
-</ul>
-</div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/usage.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -302,32 +313,25 @@ genomic
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2020, Arfath Pasha, Benjamin Gross, Chris Fong, Doori Rose, Essam Elsherif, JJ Gao.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/usage.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+      </ul>
     </div>
 
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Arfath Pasha, Benjamin Gross, Chris Fong, Doori Rose, Essam Elsherif, JJ Gao.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.
+    </div>
   </body>
 </html>

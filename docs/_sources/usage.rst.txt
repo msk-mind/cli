@@ -3,8 +3,8 @@ Usage
 
 Commands
 --------
-.. click:: msk-mind:cli
-   :prog: msk-mind
+.. click:: mind:cli
+   :prog: mind
    :show-nested:
 
 Examples
