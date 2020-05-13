@@ -52,7 +52,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'venv']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_py3doc_enhanced_theme'
+import sphinx_py3doc_enhanced_theme
+html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
+html_theme_options = {'body_max_width': '95%'}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
