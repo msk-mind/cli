@@ -3,8 +3,8 @@ Usage
 
 Commands
 --------
-.. click:: msk-mind:cli
-   :prog: msk-mind
+.. click:: mind:cli
+   :prog: mind
    :show-nested:
 
 Examples
@@ -17,7 +17,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind query "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
+    $ mind query "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'"
 
     {'payload': [{'patient.age_at_diagnosis': 24525,
               'patient.diagnosis_clinical_stage_group': '99',
@@ -39,7 +39,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind download "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
+    $ mind download "SELECT * FROM patient WHERE diagnosis_clinical_stage_group = '3C'" --download
 
     {'payload': 'http://<vm_ip>:50070/data/tmp/1587571607403.gz',
      'status': 'OK'}
@@ -49,14 +49,14 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind query "from hive_table where name like '*clinical*' select name, owner"
+    $ mind query "from hive_table where name like '*clinical*' select name, owner"
 
     {'payload': [{'name': 'clinical_patient', 'owner': 'raj_ops'},
                  {'name': 'clinical_diagnosis', 'owner': 'raj_ops'}],
     'status': 'OK'}
 
 
-    $ msk-mind query "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
+    $ mind query "from hdfs_path where name like '*genomic*' select name, qualifiedName, path"
 
     {'payload': [{'name': '/user/hive/genomic_cna',
               'path': 'hdfs://sandbox-hdp.hortonworks.com:8020/user/hive/genomic_cna',
@@ -73,7 +73,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind download "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
+    $ mind download "hive_table where name like '*genomic*' and createTime >= '2020-04-20'"
 
     {'payload': 'http://<vm_ip>:50070/data/tmp/1588078078927.gz',
     'status': 'OK'}
@@ -82,7 +82,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind list-databases
+    $ mind list-databases
 
     clinical
     genomic
@@ -91,7 +91,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind list-tables clinical
+    $ mind list-tables clinical
 
     | name       | description                                                                   |
     |------------+-------------------------------------------------------------------------------|
@@ -103,7 +103,7 @@ The notebooks can be found on the hdp sandbox at http://<staging_ip>:9995/#/
 
 .. code-block:: bash
 
-    $ msk-mind list-columns clinical patient
+    $ mind list-columns clinical patient
 
     | name                         | type   | description   |
     |------------------------------+--------+---------------|

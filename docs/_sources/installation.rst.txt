@@ -25,9 +25,30 @@ Build from Source Code
 
 .. code-block:: bash
 
-    pyinstaller --onefile msk-mind.py
+    pyinstaller --onefile mind.py
 
-The executable will be at ``dist/msk-mind``.
+The executable will be at ``dist/mind``.
+
+4. Test executable.
+
+.. code-block:: bash
+
+    $ ./dist/mind
+
+    Usage: mind [OPTIONS] COMMAND [ARGS]...
+
+      Welcome to MSK MIND!
+
+    Options:
+      --host TEXT  [default: http://localhost:8080]
+      --help       Show this message and exit.
+
+    Commands:
+      download        download data.
+      list-columns    show available columns given database and table.
+      list-databases  show available databases.
+      list-tables     show available tables given a database.
+      query           query data.
 
 
 Download
