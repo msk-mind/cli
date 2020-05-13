@@ -59,7 +59,28 @@ pip install -r requirements.txt
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyinstaller --onefile mind.py
 </pre></div>
 </div>
-<p>The executable will be at <code class="docutils literal notranslate"><span class="pre">dist/msk-mind</span></code>.</p>
+<p>The executable will be at <code class="docutils literal notranslate"><span class="pre">dist/mind</span></code>.</p>
+<ol class="arabic simple" start="4">
+<li><p>Test executable.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./dist/mind
+
+Usage: mind <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+
+  Welcome to MSK MIND!
+
+Options:
+  --host TEXT  <span class="o">[</span>default: http://localhost:8080<span class="o">]</span>
+  --help       Show this message and exit.
+
+Commands:
+  download        download data.
+  list-columns    show available columns given database and table.
+  list-databases  show available databases.
+  list-tables     show available tables given a database.
+  query           query data.
+</pre></div>
+</div>
 </div>
 <div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
