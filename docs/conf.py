@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'msk-mind cli'
-copyright = '2020, Arfath Pasha, Benjamin Gross, Chris Fong, Doori Rose, Essam Elsherif, JJ Gao'
+copyright = '2020, Computational Oncology, MSKCC.'
 author = 'Arfath Pasha, Benjamin Gross, Chris Fong, Doori Rose, Essam Elsherif, JJ Gao'
 
 # The full version, including alpha/beta/rc tags
