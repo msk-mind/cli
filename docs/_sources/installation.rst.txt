@@ -4,6 +4,11 @@ Installation
 Build from Source Code
 ----------------------
 
+Prerequisites
+*************
+
+- Python 3
+
 1. Git clone project
 
 .. code-block:: bash
@@ -49,6 +54,14 @@ The executable will be at ``dist/mind``.
       list-databases  show available databases.
       list-tables     show available tables given a database.
       query           query data.
+
+**Note**: If you see an ASCII error while running the executable, set your locale by running:
+
+.. code-block:: bash
+
+    export LANG=en_US.utf-8
+
+For details, please see click documentation here: https://click.palletsprojects.com/python3/
 
 
 Download
